@@ -1,12 +1,40 @@
 //Шрифт по умолчанию
-$fontFamily: "Fira Sans";
+$fontFamily: "Inter";
 
-//Цвета страницы
-$colorBasic: #3726f2;
-$colorHover: #3022d2;
-$colorText: #151515;
+//PAGE COLORS
+
+$colorBasic: #0F0F13;
+$colorHover: #2C2C35;
+$colorBtn: #1E1E24;
+$colorBorder: #1E1E24;
+
+$colorText: #F5F5FF;
+$colorGrayText: #D0D0DA;
+$colorHardGrayText: #5B5B65;
+
+$colorBlack: #000000;
 
 $colorFooter: #515151;
+
+// ACCENTS COLORS
+
+$seaGreen: #15FFAB; // Для повышения акций
+$alizarinRed: #15FFAB; // Для понижения акций
+$azure: #0062FF;
+$springGreen: #62F783;
+$amethyst: #A162F7;
+$mangoTango: #FF8743;
+$zincYellow: #FFF736;
+$magenta: #E80FE9;
+$strawberryRed: #DB3031;
+$darkAmber: #FE7E07;
+$frostySkies: #06D7F6;
+$crayolaWildStrawberries: #FF5CAA;
+$verdepom: #24CA49;
+$shinOrange: #FFB443;
+$thistle: #C2B7CD;
+$spunkyRedOrange: #FF7A2F;
+$moderateAquamarine: #3DD598;
 
 //Прочее переменные
 //$maxWidth: 1111;

@@ -3,7 +3,7 @@
 //Подключаем шщрифты
 //&display=swap &subnet=cyrillc-ext
 @import "fonts";
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,500;0,600;0,700;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
 //Иконочный шрифт или спрайт
 // @import "icons";
 // Импортируем переменные
@@ -13,9 +13,10 @@ html,
 body {
   font-size: 14px;
   height: 100%;
+  line-height: calc(16 / 14) * 100%;
   color: $colorText;
   font-family: $fontFamily;
-  background: url("../img/bg/bg.svg");
+  background-color: $colorBlack;
 }
 a {
   // Я наконец-то понял как пишется эта команда
@@ -47,14 +48,86 @@ button {
 .active {
 }
 .h1 {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 150%;
 }
 .h2 {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 121%;
 }
 .h3 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 124%;
 }
 .h4 {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 121%;
+}
+.h5 {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 125%;
+  letter-spacing: 0.113382px;
+}
+.h6 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 90%;
+}
+.h7 {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 122%;
 }
 .text {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 114%;
+}
+.textBold {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 114%;
+}
+.subtitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: -0.009em;
+}
+.subtutleSemiBold {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+}
+.buttonLabel {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: -0.009em;
+}
+.miniButtonLabel {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 143%;
+  letter-spacing: -0.009em;
+}
+.description {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 133%;
+}
+.miniDescription {
+  font-weight: normal;
+  font-size: 9px;
+  line-height: 122%;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
 }
 .btn {
 }
