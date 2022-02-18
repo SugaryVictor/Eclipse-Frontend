@@ -3,14 +3,14 @@ $fontFamily: "Inter";
 
 //PAGE COLORS
 
-$colorBasic: #0F0F13;
-$colorHover: #2C2C35;
-$colorBtn: #1E1E24;
-$colorBorder: #1E1E24;
+$colorBasic: #0f0f13;
+$colorHover: #2c2c35;
+$colorBtn: #1e1e24;
+$colorBorder: #1e1e24;
 
-$colorText: #F5F5FF;
-$colorGrayText: #D0D0DA;
-$colorHardGrayText: #5B5B65;
+$colorText: #f5f5ff;
+$colorGrayText: #d0d0da;
+$colorHardGrayText: #5b5b65;
 
 $colorBlack: #000000;
 
@@ -18,27 +18,27 @@ $colorFooter: #515151;
 
 // ACCENTS COLORS
 
-$seaGreen: #15FFAB; // Для повышения акций
-$alizarinRed: #15FFAB; // Для понижения акций
-$azure: #0062FF;
-$springGreen: #62F783;
-$amethyst: #A162F7;
-$mangoTango: #FF8743;
-$zincYellow: #FFF736;
-$magenta: #E80FE9;
-$strawberryRed: #DB3031;
-$darkAmber: #FE7E07;
-$frostySkies: #06D7F6;
-$crayolaWildStrawberries: #FF5CAA;
-$verdepom: #24CA49;
-$shinOrange: #FFB443;
-$thistle: #C2B7CD;
-$spunkyRedOrange: #FF7A2F;
-$moderateAquamarine: #3DD598;
+$seaGreen: #15ffab; // Для повышения акций
+$alizarinRed: #15ffab; // Для понижения акций
+$azure: #0062ff;
+$springGreen: #62f783;
+$amethyst: #a162f7;
+$mangoTango: #ff8743;
+$zincYellow: #fff736;
+$magenta: #e80fe9;
+$strawberryRed: #db3031;
+$darkAmber: #fe7e07;
+$frostySkies: #06d7f6;
+$crayolaWildStrawberries: #ff5caa;
+$verdepom: #24ca49;
+$shinOrange: #ffb443;
+$thistle: #c2b7cd;
+$spunkyRedOrange: #ff7a2f;
+$moderateAquamarine: #3dd598;
 
 //Прочее переменные
 //$maxWidth: 1111;
-$maxWidthContainer: 1110 + 20;
+$maxWidthContainer: 1152 + 20;
 //Это брейкпоинты
 $md1: $maxWidthContainer + 10;
 $md2: 991.98;
