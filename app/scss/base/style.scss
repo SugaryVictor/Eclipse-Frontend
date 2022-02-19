@@ -13,7 +13,7 @@ html,
 body {
   font-size: 14px;
   height: 100%;
-  line-height: calc(16 / 14) * 100%;
+  line-height: 114%;
   color: $colorText;
   font-family: $fontFamily;
   background-color: $colorBlack;
@@ -138,4 +138,4 @@ button {
 @import "header";
 @import "footer";
 //Импортируем классы этого проекта-----------------------------------------------
-// @import "../blocks/";
+@import "../blocks/nav";

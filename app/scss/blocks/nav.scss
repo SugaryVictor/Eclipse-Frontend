@@ -1,0 +1,62 @@
+@import "../base/vars";
+.header {
+}
+.nav {
+    background-color: $colorBasic;
+    width: 100%;
+    &__container {
+        margin: 0 24px;
+    }
+    &__row {
+        height: 68px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .nav__logo
+    &__logo {
+        margin: 0 70px 0 0;
+    }
+
+    // .nav__search
+    &__search {
+        flex: 1 1;
+        form {
+        }
+        input#search {
+            width: 35vw;
+            background-color: $colorBlack;
+            border-radius: 8px;
+        }
+        input::placeholder {
+            color: $colorHardGrayText;
+        }
+        input {
+            background-image: url("../img/icons/search.svg");
+            background-repeat: no-repeat;
+            background-position: 14px 50%;
+        }
+        input[type="text"] {
+            font-family: $fontFamily;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 100%;
+            letter-spacing: -0.009em;
+            padding: 8px 0 8px 40px;
+        }
+    }
+
+    // .nav__icons
+    &__icons {
+        display: flex;
+    }
+
+    // .nav__icons-item
+    &__icons-item {
+        margin: 0 24px 0 0;
+        &:last-child {
+            margin: 0;
+        }
+    }
+}
