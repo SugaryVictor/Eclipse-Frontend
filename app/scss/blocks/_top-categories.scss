@@ -2,9 +2,28 @@
     display: flex;
     flex-direction: column;
     flex: 1 1;
+    // .top-categories__header
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        width: 28vw;
+        margin: 0 0 18px 0;
+    }
     // .top-categories__title
     &__title {
         margin: 0 0 18px 0;
+    } // .last-transaction__btns
+    &__btns {
+        display: flex;
+        gap: 8px;
+    }
+    // .top-categories__btn
+    &__btn {
+        display: inline-block;
+        &-prev {
+        }
+        &-next {
+        }
     }
 }
 

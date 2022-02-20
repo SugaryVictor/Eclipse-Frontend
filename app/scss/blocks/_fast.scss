@@ -43,7 +43,9 @@
     // .fast__tag
     &__tag {
         display: flex;
+        flex: 1 1;
         position: relative;
+
         &.btn {
             padding: 10px 16px 10px 31px;
             border-radius: 100px;
