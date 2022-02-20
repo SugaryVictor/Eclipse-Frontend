@@ -1,0 +1,65 @@
+.top-categories {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    // .top-categories__title
+    &__title {
+        margin: 0 0 18px 0;
+    }
+}
+
+.top-cards {
+    display: flex;
+    gap: 9px;
+    // .top-cards__item
+    &__item {
+        background-color: #070707;
+        border-radius: 12px;
+        width: 11.45vw;
+        min-height: 220px;
+        height: 100%;
+        width: 100%;
+        padding: 24px 20px;
+    }
+
+    // .top-cards__title
+    &__title {
+        margin: 0 0 14px 0;
+    }
+
+    // .top-cards__profit
+    &__profit {
+        margin: 0 0 9px 0;
+    }
+
+    // .top-cards__percent
+    &__percent {
+        margin: 0 0 9px 0;
+    }
+
+    // // .top-cards__content
+    // &__content {
+    //     display: flex;
+    //     flex: 1 1;
+    // }
+
+    .spend-this-week {
+        background-image: url("../img/test-no-front/chart.svg");
+        background-repeat: no-repeat;
+        background-position: 50% 135px;
+        background-size: 9.024vw auto;
+    }
+    .total-cashback {
+        background-image: url("../img/test-no-front/progress_bar.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 50% 190px;
+        background-size: 9.024vw auto;
+    }
+    .spending-trend {
+        background-image: url("../img/test-no-front/stonks.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 50% 100%;
+    }
+}

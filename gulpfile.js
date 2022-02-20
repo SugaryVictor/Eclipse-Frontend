@@ -31,12 +31,12 @@ export const deploy = deployZip;
 
 // WATCHING FUNCTION
 export const watching = () => {
+    gulp.watch(['./app/**/*.html', './app/index.html']).on('change', browserSync.reload);
     gulp.watch(['./app/scss/**/*.scss'], copy).on('change', browserSync.reload);
     gulp.watch(['./app/js/modules/*.js', '!./app/js/bundle.min.js'], scripts);
-    gulp.watch(['./app/**/*.html']).on('change', browserSync.reload);
-    gulp.watch(['./app/pug/**/*.pug'], html).on('change',browserSync.reload);
+    gulp.watch(['./app/pug/**/*.pug'], html).on('change', browserSync.reload);
     gulp.watch(['./app/img/*.svg'], sprites);
-        gulp.watch(['./app/fonts/**.ttf'], font);
+    gulp.watch(['./app/fonts/**.ttf'], font);
 };
 
 // BROWSER SYNC

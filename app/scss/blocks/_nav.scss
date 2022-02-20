@@ -1,6 +1,5 @@
 @import "../base/vars";
-.header {
-}
+
 .nav {
     background-color: $colorBasic;
     width: 100%;
@@ -39,6 +38,7 @@
         }
         input[type="text"] {
             font-family: $fontFamily;
+            color: $colorHardGrayText;
             font-weight: 500;
             font-size: 16px;
             line-height: 100%;
@@ -50,6 +50,7 @@
     // .nav__icons
     &__icons {
         display: flex;
+        margin: 0 36px 0 0;
     }
 
     // .nav__icons-item
@@ -57,6 +58,21 @@
         margin: 0 24px 0 0;
         &:last-child {
             margin: 0;
+        }
+    }
+
+    // .nav__profile
+
+    &__profile {
+        display: flex;
+        align-items: center;
+    }
+    // .nav__avatar
+
+    &__avatar {
+        margin: 0 13px 0 0;
+        img {
+            border-radius: 50%;
         }
     }
 }

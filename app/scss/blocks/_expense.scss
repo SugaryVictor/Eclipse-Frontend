@@ -1,0 +1,9 @@
+.expense {
+    padding: 40px 0 0 0;
+    // .expense__
+    &__body {
+        display: flex;
+        gap: 58px;
+        justify-content: flex-start;
+    }
+}

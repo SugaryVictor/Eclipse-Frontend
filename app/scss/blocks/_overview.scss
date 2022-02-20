@@ -1,0 +1,115 @@
+@import "../base/vars";
+.overview {
+    padding: 24px 0 26px 0;
+
+    // .overview__row
+    &__row {
+    }
+
+    // .overview__header
+    &__header {
+        display: flex;
+        flex: 1 1;
+        justify-content: space-between;
+
+        margin: 0 0 12px 0;
+    }
+
+    // .overview__title
+    &__title {
+        display: flex;
+        align-items: center;
+    }
+
+    // .overview__h1
+    &__h1 {
+        margin: 0 24px 0 0;
+    }
+
+    // .overview__btn-alt
+    &__btn-alt {
+        display: flex;
+        img {
+            height: 18px;
+            width: 18px;
+            margin: 0 12px 0 0;
+        }
+    }
+
+    // .overview__label
+    &__label {
+    }
+
+    // .overview__filters
+    &__filters {
+        display: flex;
+        align-items: center;
+    }
+    &__select {
+        display: flex;
+        position: relative;
+        position: relative;
+        font-family: $fontFamily;
+        color: $colorText;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: -0.009em;
+        height: 36px;
+        margin: 0 12px 0 0;
+
+        &::after {
+            content: " ";
+            position: absolute;
+            display: block;
+            width: 18px;
+            height: 18px;
+            background-image: url("../img/icons/arrow-alt.svg");
+            right: 20px;
+        }
+    }
+
+    // TRANSACTIONS
+
+    // .overview__transactions
+    &__transactions {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .overview__title
+    &__title {
+        margin: 0 0 9px 0;
+    }
+
+    // .overview__balance-info
+    &__balance-info {
+        display: flex;
+        margin: 0 0 2px 0;
+    }
+
+    // .overview__balance
+    &__balance {
+        color: white;
+
+        margin: 0 10px 0 0;
+    }
+
+    // .overview__percent
+    &__percent {
+        display: flex;
+        align-items: center;
+
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 175%;
+        letter-spacing: -0.009em;
+    }
+
+    // .overview__last-month
+    &__last-month {
+        color: $colorHardGrayText;
+    }
+}

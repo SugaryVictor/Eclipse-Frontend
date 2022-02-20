@@ -1,0 +1,71 @@
+section.overview
+    .container
+        .row
+            .overview__header
+                .overview__title
+                    h1.overview__h1.h1 Overview
+                    button.overview__btn-alt.btn-alt
+                        img(src="../img/icons/plus.svg", alt="plus")
+                        .overview__.buttonLabel Add product
+                .overview__filters
+                    button.overview__select.btn 
+                        .overview__label.buttonLabel Popular
+                    button.overview__filters
+                        img(src="../img/icons/filter.svg", alt="filter")
+            .overview__cards
+                section.card
+                    .card__body.orange
+                        .card__currency 
+                            img(src="../img/logos/btc-logo.svg", alt="BTC")
+                            img(src="../img/icons/chip.svg", alt="CHIP")
+                        .card__balance.h2 12,500
+                        .card__info
+                            .card__card-holder Card holder
+                                span Orion
+                            .card__fin-logo
+                                img(src="../img/logos/visa-logo.svg", alt="visa")
+                    .card__body.gray
+                        .card__currency 
+                            img(src="../img/logos/euro-logo.svg", alt="EURO")
+                            img(src="../img/icons/chip.svg", alt="CHIP")
+                        .card__balance.h2 54,302
+                        .card__info
+                            .card__card-holder Card holder
+                                span Alien Pixels
+                            .card__fin-logo
+                                img(src="../img/logos/mastercard-logo.svg", alt="mastercard")
+                    .card__body.red
+                        .card__currency 
+                            img(src="../img/logos/usd-logo.svg", alt="USD")
+                            img(src="../img/icons/chip.svg", alt="CHIP")
+                        .card__balance.h2 38,864
+                        .card__info
+                            .card__card-holder Card holder
+                                span ALEX
+                            .card__fin-logo
+                                img(src="../img/logos/visa-logo.svg", alt="visa")
+            .overview__transactions
+                .overview__income
+                    .overview__title.buttonText Income
+                    .overview__balance-info 
+                        .overview__balance.h3 $32,134
+                        .overview__percent.plus ↑2.5%
+                    .overview__last-month.text Compared to $21,340 last month
+                .overview__expense 
+                    .overview__title.buttonText Expense
+                    .overview__balance-info 
+                        .overview__balance.h3 $4,541
+                        .overview__percent.minus ↓2.5%
+                    .overview__last-month.text Compared to $21,340 last month
+                .overview__cashback 
+                    .overview__title.buttonText Cashback
+                    .overview__balance-info 
+                        .overview__balance.h3 $1,324
+                        .overview__percent.plus +4.5%
+                    .overview__last-month.text Compared to $890 last month
+                .overview__turnover 
+                    .overview__title.buttonText Monthly turnover
+                    .overview__balance-info 
+                        .overview__balance.h3 $87,324
+                        .overview__percent.minus ↓31%
+                    .overview__last-month.text Compared to $ 196,129 last month

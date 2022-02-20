@@ -12,5 +12,12 @@ block content
     include header
     
     main.page
-      //- include ../blocks/
+      include ../blocks/overview
+      include ../blocks/fast
+      section.expense
+        .container
+          .row
+            .expense__body
+              include ../blocks/last-transaction
+              include ../blocks/top-categories
     include footer

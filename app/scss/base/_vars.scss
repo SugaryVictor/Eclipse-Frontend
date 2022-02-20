@@ -18,27 +18,27 @@ $colorFooter: #515151;
 
 // ACCENTS COLORS
 
-$seaGreen: #15ffab; // Для повышения акций
-$alizarinRed: #15ffab; // Для понижения акций
-$azure: #0062ff;
-$springGreen: #62f783;
-$amethyst: #a162f7;
-$mangoTango: #ff8743;
-$zincYellow: #fff736;
-$magenta: #e80fe9;
-$strawberryRed: #db3031;
-$darkAmber: #fe7e07;
-$frostySkies: #06d7f6;
-$crayolaWildStrawberries: #ff5caa;
-$verdepom: #24ca49;
-$shinOrange: #ffb443;
-$thistle: #c2b7cd;
-$spunkyRedOrange: #ff7a2f;
-$moderateAquamarine: #3dd598;
+$colorSeaGreen: #15ffab; // Для повышения акций
+$colorAlizarinRed: #fd4438; // Для понижения акций
+$colorAzure: #0062ff;
+$colorSpringGreen: #62f783;
+$colorAmethyst: #a162f7;
+$colorMangoTango: #ff8743;
+$colorZincYellow: #fff736;
+$colorMagenta: #e80fe9;
+$colorStrawberryRed: #db3031;
+$colorDarkAmber: #fe7e07;
+$colorFrostySkies: #06d7f6;
+$colorCrayolaWildStrawberries: #ff5caa;
+$colorVerdepom: #24ca49;
+$colorShinOrange: #ffb443;
+$colorThistle: #c2b7cd;
+$colorSpunkyRedOrange: #ff7a2f;
+$colorModerateAquamarine: #3dd598;
 
 //Прочее переменные
 //$maxWidth: 1111;
-$maxWidthContainer: 1152 + 20;
+$maxWidthContainer: 1152 + 30 + px;
 //Это брейкпоинты
 $md1: $maxWidthContainer + 10;
 $md2: 991.98;

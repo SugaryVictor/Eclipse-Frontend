@@ -44,6 +44,12 @@ button {
   @media (max-width: $md3+px) {
   }
 }
+.container {
+  width: $maxWidthContainer;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
 //ОСНОВНАЯ СЕТКА-----------------------------------------------------------------
 .active {
 }
@@ -58,7 +64,6 @@ button {
   line-height: 121%;
 }
 .h3 {
-  font-style: normal;
   font-weight: bold;
   font-size: 28px;
   line-height: 124%;
@@ -106,12 +111,15 @@ button {
   line-height: 125%;
 }
 .buttonLabel {
+  color: $colorText;
   font-weight: bold;
   font-size: 16px;
   line-height: 100%;
   letter-spacing: -0.009em;
 }
 .miniButtonLabel {
+  color: inherit;
+
   font-weight: 600;
   font-size: 14px;
   line-height: 143%;
@@ -129,9 +137,33 @@ button {
   letter-spacing: 0.05em;
   text-transform: capitalize;
 }
-.btn {
+.buttonText {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: -0.009em;
+  color: #d0d0da;
 }
-
+.btn {
+  padding: 8px 50px 8px 20px;
+  background-color: $colorBtn;
+  border-radius: 6px;
+  height: 36px;
+  cursor: pointer;
+}
+.btn-alt {
+  padding: 10px 20px 10px 20px;
+  border: 2px solid $colorBtn;
+  border-radius: 6px;
+}
+.tagBtn {
+}
+.plus {
+  color: $colorSeaGreen;
+}
+.minus {
+  color: $colorAlizarinRed;
+}
 //Импортируем постоянные классы--------------------------------------------------
 @import "mixin";
 @import "ui";
@@ -139,3 +171,9 @@ button {
 @import "footer";
 //Импортируем классы этого проекта-----------------------------------------------
 @import "../blocks/nav";
+@import "../blocks/overview";
+@import "../blocks/cards";
+@import "../blocks/fast";
+@import "../blocks/expense";
+@import "../blocks/last-transaction";
+@import "../blocks/top-categories";

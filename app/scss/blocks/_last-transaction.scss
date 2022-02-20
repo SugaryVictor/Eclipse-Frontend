@@ -1,0 +1,95 @@
+// HEADER
+.last-transaction {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    // .last-transaction__header
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        width: 28vw;
+        margin: 0 0 18px 0;
+    }
+
+    // .last-transaction__title
+    &__title {
+    }
+
+    // .last-transaction__btns
+    &__btns {
+    }
+
+    // .last-transaction__btn
+    &__btn {
+        display: inline-block;
+        &-prev {
+        }
+        &-next {
+        }
+    }
+}
+
+// TABLE
+.last-transaction {
+    // .last-transaction__table
+    &__table {
+    }
+
+    // .last-transaction__stroke
+    &__stroke {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        margin: 0 0 26px 0;
+    }
+
+    // .last-transaction__category
+    &__category {
+        display: flex;
+        width: 11.7vw;
+    }
+
+    // .last-transaction__info
+    &__info {
+    }
+
+    // .last-transaction__store
+    &__store {
+    }
+
+    // .last-transaction__date
+    &__date {
+        color: $colorHardGrayText;
+    }
+
+    // .last-transaction__cards-pay
+    &__cards-pay {
+        display: flex;
+        flex: 1 1;
+    }
+
+    // .last-transaction__img
+    &__img {
+        margin: 0 8px 0 0;
+    }
+
+    // .last-transaction__cards-info
+    &__cards-info {
+    }
+
+    // .last-transaction__number
+    &__number {
+        color: $colorHardGrayText;
+    }
+
+    // .last-transaction__card-type
+    &__card-type {
+        color: $colorHardGrayText;
+    }
+
+    // .last-transaction__transactions-balance
+    &__transactions-balance {
+        align-items: center;
+    }
+}

@@ -1,16 +1,24 @@
-header.header
-  .nav
-    .nav__container
-        .nav__row
-            .nav__logo
-                img(src="../img/logos/logo.svg", alt="")
-            .nav__search 
-              form(action="/my-handling-form-page", method="get", placeholder="Your name..")
-                input(type="text", id="search", name="search", placeholder="Search")
-            ul.nav__icons
-                li.nav__icons-item
-                  img(src="./img/icons/square.svg", alt="")
-                li.nav__icons-item
-                  img(src="./img/icons/statistic.svg", alt="")
-                li.nav__icons-item
-                  img(src="./img/icons/notifications.svg", alt="")
+nav.nav
+  .nav__container
+      .nav__row
+          .nav__logo
+              img(src="../img/logos/logo.svg", alt="")
+          .nav__search 
+            form(action="/my-handling-form-page", method="get", placeholder="Your name..")
+              input(type="text", id="search", name="search", placeholder="Search")
+          ul.nav__icons
+              li.nav__icons-item
+              a(href="#") 
+                img(src="./img/icons/square.svg", alt="square.svg")
+              li.nav__icons-item
+              a(href="#") 
+                img(src="./img/icons/statistic.svg", alt="statistic.svg")
+              li.nav__icons-item.active
+              a(href="#") 
+                img(src="./img/icons/notifications.svg", alt="notifications.svg")
+          .nav__profile
+            .nav__avatar
+              img(src="../img/avatars/avatar.png", alt="photo")
+            .nav__profile-btn
+              button
+                img(src="../img/icons/arrow.svg", alt="arrow-icon")
