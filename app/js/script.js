@@ -1,0 +1,1 @@
+import * as swiper from './modules/swipers.js';

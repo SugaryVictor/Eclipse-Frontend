@@ -1,17 +1,18 @@
 .top-categories {
+    overflow: hidden;
+    position: relative;
     display: flex;
     flex-direction: column;
     flex: 1 1;
     // .top-categories__header
     &__header {
         display: flex;
+        flex: 1 1;
         justify-content: space-between;
-        width: 28vw;
         margin: 0 0 18px 0;
     }
     // .top-categories__title
     &__title {
-        margin: 0 0 18px 0;
     } // .last-transaction__btns
     &__btns {
         display: flex;
@@ -20,6 +21,7 @@
     // .top-categories__btn
     &__btn {
         display: inline-block;
+        cursor: pointer;
         &-prev {
         }
         &-next {
@@ -29,9 +31,11 @@
 
 .top-cards {
     display: flex;
-    gap: 9px;
     // .top-cards__item
     &__item {
+        display: flex;
+        flex-direction: column;
+        position: relative;
         background-color: #070707;
         border-radius: 12px;
         width: 11.45vw;
@@ -39,6 +43,17 @@
         height: 100%;
         width: 100%;
         padding: 24px 20px;
+    }
+    &__text {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1;
+    }
+    // .top-cards__content
+    &__content {
+        img {
+            width: 100%;
+        }
     }
 
     // .top-cards__title
@@ -53,28 +68,8 @@
 
     // .top-cards__percent
     &__percent {
-        margin: 0 0 9px 0;
     }
 
-    // // .top-cards__content
-    // &__content {
-    //     display: flex;
-    //     flex: 1 1;
-    // }
-
-    .spend-this-week {
-        background-image: url("../img/test-no-front/chart.svg");
-        background-repeat: no-repeat;
-        background-position: 50% 135px;
-        background-size: 9.024vw auto;
-    }
-    .total-cashback {
-        background-image: url("../img/test-no-front/progress_bar.svg");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: 50% 190px;
-        background-size: 9.024vw auto;
-    }
     .spending-trend {
         background-image: url("../img/test-no-front/stonks.svg");
         background-repeat: no-repeat;

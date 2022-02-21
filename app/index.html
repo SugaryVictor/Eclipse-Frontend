@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../css/style.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
     <link rel="shortcut icon" href="../img/icons/favicon.jpg" type="image/jpg">
     <title>CutSpace</title>
   </head>
@@ -52,29 +53,55 @@
                 </div>
               </div>
               <div class="overview__cards">
-                <section class="card">
-                  <div class="card__body orange">
-                    <div class="card__currency"> <img src="../img/logos/btc-logo.svg" alt="BTC"><img src="../img/icons/chip.svg" alt="CHIP"></div>
-                    <div class="card__balance h2">12,500</div>
-                    <div class="card__info">
-                      <div class="card__card-holder">Card holder<span>Orion</span></div>
-                      <div class="card__fin-logo"><img src="../img/logos/visa-logo.svg" alt="visa"></div>
+                <section class="card swiper-container">
+                  <div class="swiper-wrapper">
+                    <div class="card__body orange swiper-slide">
+                      <div class="card__currency"> <img src="../img/logos/btc-logo.svg" alt="BTC"><img src="../img/icons/chip.svg" alt="CHIP"></div>
+                      <div class="card__balance h2">12,500</div>
+                      <div class="card__info">
+                        <div class="card__card-holder">Card holder<span>Orion</span></div>
+                        <div class="card__fin-logo"><img src="../img/logos/visa-logo.svg" alt="visa"></div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="card__body gray">
-                    <div class="card__currency"> <img src="../img/logos/euro-logo.svg" alt="EURO"><img src="../img/icons/chip.svg" alt="CHIP"></div>
-                    <div class="card__balance h2">54,302</div>
-                    <div class="card__info">
-                      <div class="card__card-holder">Card holder<span>Alien Pixels</span></div>
-                      <div class="card__fin-logo"><img src="../img/logos/mastercard-logo.svg" alt="mastercard"></div>
+                    <div class="card__body gray swiper-slide">
+                      <div class="card__currency"> <img src="../img/logos/euro-logo.svg" alt="EURO"><img src="../img/icons/chip.svg" alt="CHIP"></div>
+                      <div class="card__balance h2">54,302</div>
+                      <div class="card__info">
+                        <div class="card__card-holder">Card holder<span>Alien Pixels</span></div>
+                        <div class="card__fin-logo"><img src="../img/logos/mastercard-logo.svg" alt="mastercard"></div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="card__body red">
-                    <div class="card__currency"> <img src="../img/logos/usd-logo.svg" alt="USD"><img src="../img/icons/chip.svg" alt="CHIP"></div>
-                    <div class="card__balance h2">38,864</div>
-                    <div class="card__info">
-                      <div class="card__card-holder">Card holder<span>ALEX</span></div>
-                      <div class="card__fin-logo"><img src="../img/logos/visa-logo.svg" alt="visa"></div>
+                    <div class="card__body red swiper-slide">
+                      <div class="card__currency"> <img src="../img/logos/usd-logo.svg" alt="USD"><img src="../img/icons/chip.svg" alt="CHIP"></div>
+                      <div class="card__balance h2">38,864</div>
+                      <div class="card__info">
+                        <div class="card__card-holder">Card holder<span>ALEX</span></div>
+                        <div class="card__fin-logo"><img src="../img/logos/visa-logo.svg" alt="visa"></div>
+                      </div>
+                    </div>
+                    <div class="card__body manteray swiper-slide">
+                      <div class="card__currency"> <img src="../img/logos/usd-logo.svg" alt="USD"><img src="../img/icons/chip.svg" alt="CHIP"></div>
+                      <div class="card__balance h2">12,500</div>
+                      <div class="card__info">
+                        <div class="card__card-holder">Card holder<span>Sugary</span></div>
+                        <div class="card__fin-logo"><img src="../img/logos/mastercard-logo.svg" alt="mastercard"></div>
+                      </div>
+                    </div>
+                    <div class="card__body red swiper-slide">
+                      <div class="card__currency"> <img src="../img/logos/usd-logo.svg" alt="USD"><img src="../img/icons/chip.svg" alt="CHIP"></div>
+                      <div class="card__balance h2">44,246</div>
+                      <div class="card__info">
+                        <div class="card__card-holder">Card holder<span>ALEX</span></div>
+                        <div class="card__fin-logo"><img src="../img/logos/visa-logo.svg" alt="visa"></div>
+                      </div>
+                    </div>
+                    <div class="card__body bigSur swiper-slide">
+                      <div class="card__currency"> <img src="../img/logos/btc-logo.svg" alt="BTC"><img src="../img/icons/chip.svg" alt="CHIP"></div>
+                      <div class="card__balance h2">54,302</div>
+                      <div class="card__info">
+                        <div class="card__card-holder">Card holder<span>Victor Chepkasov</span></div>
+                        <div class="card__fin-logo"><img src="../img/logos/visa-logo.svg" alt="visa"></div>
+                      </div>
                     </div>
                   </div>
                 </section>
@@ -125,32 +152,58 @@
                   <path d="M8.25 8.25V3.75H9.75V8.25H14.25V9.75H9.75V14.25H8.25V9.75H3.75V8.25H8.25Z" fill="#ffffff"></path>
                 </svg>
               </div>
-              <ul class="fast__tegs-items">
-                <li class="fast__tag btn">
-                  <div class="fast__category text azure">Training</div>
-                  <div class="fast__balance textBold">$650</div>
-                </li>
-                <li class="fast__tag btn">
-                  <div class="fast__category text zinc">Internet</div>
-                  <div class="fast__balance textBold">$45</div>
-                </li>
-                <li class="fast__tag btn">
-                  <div class="fast__category text spring">Gaz</div>
-                  <div class="fast__balance textBold">$135</div>
-                </li>
-                <li class="fast__tag btn">
-                  <div class="fast__category text mango">Cinema</div>
-                  <div class="fast__balance textBold">$15</div>
-                </li>
-                <li class="fast__tag btn">
-                  <div class="fast__category text sea">Clothes</div>
-                  <div class="fast__balance textBold">$700</div>
-                </li>
-                <li class="fast__tag btn">
-                  <div class="fast__category text amethyst">Coffee</div>
-                  <div class="fast__balance textBold">$50</div>
-                </li>
-              </ul>
+              <div class="fast__tegs-wrapper swiper-container">
+                <ul class="fast__tegs-items swiper-wrapper">
+                  <li class="fast__tag btn swiper-slide">
+                    <div class="fast__category text azure">Training</div>
+                    <div class="fast__balance textBold">$650</div>
+                  </li>
+                  <li class="fast__tag btn swiper-slide">
+                    <div class="fast__category text zinc">Internet</div>
+                    <div class="fast__balance textBold">$45</div>
+                  </li>
+                  <li class="fast__tag btn swiper-slide">
+                    <div class="fast__category text spring">Gaz</div>
+                    <div class="fast__balance textBold">$135</div>
+                  </li>
+                  <li class="fast__tag btn swiper-slide">
+                    <div class="fast__category text mango">Cinema</div>
+                    <div class="fast__balance textBold">$15</div>
+                  </li>
+                  <li class="fast__tag btn swiper-slide">
+                    <div class="fast__category text sea">Clothes</div>
+                    <div class="fast__balance textBold">$700</div>
+                  </li>
+                  <li class="fast__tag btn swiper-slide">
+                    <div class="fast__category text amethyst">Coffee</div>
+                    <div class="fast__balance textBold">$50</div>
+                  </li>
+                  <li class="fast__tag btn swiper-slide">
+                    <div class="fast__category text zinc">Internet</div>
+                    <div class="fast__balance textBold">$45</div>
+                  </li>
+                  <li class="fast__tag btn swiper-slide">
+                    <div class="fast__category text spring">Gaz</div>
+                    <div class="fast__balance textBold">$135</div>
+                  </li>
+                  <li class="fast__tag btn swiper-slide">
+                    <div class="fast__category text mango">Cinema</div>
+                    <div class="fast__balance textBold">$15</div>
+                  </li>
+                  <li class="fast__tag btn swiper-slide">
+                    <div class="fast__category text zinc">Internet</div>
+                    <div class="fast__balance textBold">$45</div>
+                  </li>
+                  <li class="fast__tag btn swiper-slide">
+                    <div class="fast__category text spring">Gaz</div>
+                    <div class="fast__balance textBold">$135</div>
+                  </li>
+                  <li class="fast__tag btn swiper-slide">
+                    <div class="fast__category text mango">Cinema</div>
+                    <div class="fast__balance textBold">$15</div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </sections>
@@ -158,100 +211,251 @@
           <div class="container">
             <div class="row">
               <div class="expense__body">
-                <section class="last-transaction">
+                <section class="last-transaction swiper-container">
                   <div class="last-transaction__header"> 
                     <div class="last-transaction__title h4">Last transaction</div>
-                    <div class="last-transaction__btns">
-                      <div class="last-transaction__btn btn-prev"><img src="../img/icons/arrow-left.svg" alt="btn-prev"></div>
-                      <div class="last-transaction__btn btn-next"><img src="../img/icons/arrow-right.svg" alt="btn-next"></div>
-                    </div>
+                    <div class="last-transaction__btns"><img class="last-transaction__btn btn-prev" src="../img/icons/arrow-left.svg" alt="btn-prev"><img class="last-transaction__btn btn-next" src="../img/icons/arrow-right.svg" alt="btn-next"></div>
                   </div>
-                  <ul class="last-transaction__table">
-                    <li class="last-transaction__stroke">
-                      <div class="last-transaction__category"><img class="last-transaction__img" src="../img/categories-icons/gamepad.svg" alt="gamepad">
-                        <div class="last-transaction__info">
-                          <div class="last-transaction__store miniButtonLabel">Apple store</div>
-                          <div class="last-transaction__date description">05.01.2020</div>
+                  <div class="swiper-wrapper">
+                    <ul class="last-transaction__table swiper-slide">
+                      <li class="last-transaction__stroke">
+                        <div class="last-transaction__category"><img class="last-transaction__img" src="../img/categories-icons/gamepad.svg" alt="gamepad">
+                          <div class="last-transaction__info">
+                            <div class="last-transaction__store miniButtonLabel">Apple store</div>
+                            <div class="last-transaction__date description">05.01.2020</div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="last-transaction__cards-pay"><img class="last-transaction__img -red" src="../img/cards/visa-card-red.svg" alt="card">
-                        <div class="last-transaction__cards-info">
-                          <div class="last-transaction__number description">*4300</div>
-                          <div class="last-transaction__card-type description">Credit card</div>
+                        <div class="last-transaction__cards-pay"><img class="last-transaction__img -red" src="../img/cards/visa-card-red.svg" alt="card">
+                          <div class="last-transaction__cards-info">
+                            <div class="last-transaction__number description">*4300</div>
+                            <div class="last-transaction__card-type description">Credit card</div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="last-transaction__transactions-balance h7">- $135,00</div>
-                    </li>
-                    <li class="last-transaction__stroke">
-                      <div class="last-transaction__category"><img class="last-transaction__img" src="../img/categories-icons/сoffee.svg" alt="сoffee">
-                        <div class="last-transaction__info">
-                          <div class="last-transaction__store miniButtonLabel">Starbucks Cafe</div>
-                          <div class="last-transaction__date description">04.01.2020</div>
+                        <div class="last-transaction__transactions-balance h7">- $135,00</div>
+                      </li>
+                      <li class="last-transaction__stroke">
+                        <div class="last-transaction__category"><img class="last-transaction__img" src="../img/categories-icons/сoffee.svg" alt="сoffee">
+                          <div class="last-transaction__info">
+                            <div class="last-transaction__store miniButtonLabel">Starbucks Cafe</div>
+                            <div class="last-transaction__date description">04.01.2020</div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="last-transaction__cards-pay"><img class="last-transaction__img -blue" src="../img/cards/visa-card-blue.svg" alt="card">
-                        <div class="last-transaction__cards-info">
-                          <div class="last-transaction__number description">*6589</div>
-                          <div class="last-transaction__card-type description">Credit card</div>
+                        <div class="last-transaction__cards-pay"><img class="last-transaction__img -blue" src="../img/cards/visa-card-blue.svg" alt="card">
+                          <div class="last-transaction__cards-info">
+                            <div class="last-transaction__number description">*6589</div>
+                            <div class="last-transaction__card-type description">Credit card</div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="last-transaction__transactions-balance h7">- $16,50</div>
-                    </li>
-                    <li class="last-transaction__stroke">
-                      <div class="last-transaction__category"><img class="last-transaction__img" src="../img/categories-icons/pharmacy.svg" alt="pharmacy">
-                        <div class="last-transaction__info">
-                          <div class="last-transaction__store miniButtonLabel">Pharmacy</div>
-                          <div class="last-transaction__date description">04.01.2020</div>
+                        <div class="last-transaction__transactions-balance h7">- $16,50</div>
+                      </li>
+                      <li class="last-transaction__stroke">
+                        <div class="last-transaction__category"><img class="last-transaction__img" src="../img/categories-icons/pharmacy.svg" alt="pharmacy">
+                          <div class="last-transaction__info">
+                            <div class="last-transaction__store miniButtonLabel">Pharmacy</div>
+                            <div class="last-transaction__date description">04.01.2020</div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="last-transaction__cards-pay"><img class="last-transaction__img" src="../img/cards/mastercard-card.svg" alt="card">
-                        <div class="last-transaction__cards-info">
-                          <div class="last-transaction__number description">*9054</div>
-                          <div class="last-transaction__card-type description">Credit card</div>
+                        <div class="last-transaction__cards-pay"><img class="last-transaction__img" src="../img/cards/mastercard-card.svg" alt="card">
+                          <div class="last-transaction__cards-info">
+                            <div class="last-transaction__number description">*9054</div>
+                            <div class="last-transaction__card-type description">Credit card</div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="last-transaction__transactions-balance h7">- $58,00</div>
-                    </li>
-                    <li class="last-transaction__stroke">
-                      <div class="last-transaction__category"><img class="last-transaction__img" src="../img/categories-icons/food.svg" alt="food">
-                        <div class="last-transaction__info">
-                          <div class="last-transaction__store miniButtonLabel">Spar</div>
-                          <div class="last-transaction__date description">03.01.2020</div>
+                        <div class="last-transaction__transactions-balance h7">- $58,00</div>
+                      </li>
+                      <li class="last-transaction__stroke">
+                        <div class="last-transaction__category"><img class="last-transaction__img" src="../img/categories-icons/food.svg" alt="food">
+                          <div class="last-transaction__info">
+                            <div class="last-transaction__store miniButtonLabel">Spar</div>
+                            <div class="last-transaction__date description">03.01.2020</div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="last-transaction__cards-pay"><img class="last-transaction__img" src="../img/cards/visa-card-gray.svg" alt="card">
-                        <div class="last-transaction__cards-info">
-                          <div class="last-transaction__number description">*3288</div>
-                          <div class="last-transaction__card-type description">Credit card</div>
+                        <div class="last-transaction__cards-pay"><img class="last-transaction__img" src="../img/cards/visa-card-gray.svg" alt="card">
+                          <div class="last-transaction__cards-info">
+                            <div class="last-transaction__number description">*3288</div>
+                            <div class="last-transaction__card-type description">Credit card</div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="last-transaction__transactions-balance h7">- $18,00</div>
-                    </li>
-                  </ul>
+                        <div class="last-transaction__transactions-balance h7">- $18,00</div>
+                      </li>
+                    </ul>
+                    <ul class="last-transaction__table swiper-slide">
+                      <li class="last-transaction__stroke">
+                        <div class="last-transaction__category"><img class="last-transaction__img" src="../img/categories-icons/сoffee.svg" alt="сoffee">
+                          <div class="last-transaction__info">
+                            <div class="last-transaction__store miniButtonLabel">Starbucks Cafe</div>
+                            <div class="last-transaction__date description">04.01.2020</div>
+                          </div>
+                        </div>
+                        <div class="last-transaction__cards-pay"><img class="last-transaction__img -blue" src="../img/cards/visa-card-blue.svg" alt="card">
+                          <div class="last-transaction__cards-info">
+                            <div class="last-transaction__number description">*6589</div>
+                            <div class="last-transaction__card-type description">Credit card</div>
+                          </div>
+                        </div>
+                        <div class="last-transaction__transactions-balance h7">- $16,50</div>
+                      </li>
+                      <li class="last-transaction__stroke">
+                        <div class="last-transaction__category"><img class="last-transaction__img" src="../img/categories-icons/pharmacy.svg" alt="pharmacy">
+                          <div class="last-transaction__info">
+                            <div class="last-transaction__store miniButtonLabel">Pharmacy</div>
+                            <div class="last-transaction__date description">04.01.2020</div>
+                          </div>
+                        </div>
+                        <div class="last-transaction__cards-pay"><img class="last-transaction__img" src="../img/cards/mastercard-card.svg" alt="card">
+                          <div class="last-transaction__cards-info">
+                            <div class="last-transaction__number description">*9054</div>
+                            <div class="last-transaction__card-type description">Credit card</div>
+                          </div>
+                        </div>
+                        <div class="last-transaction__transactions-balance h7">- $58,00</div>
+                      </li>
+                      <li class="last-transaction__stroke">
+                        <div class="last-transaction__category"><img class="last-transaction__img" src="../img/categories-icons/gamepad.svg" alt="gamepad">
+                          <div class="last-transaction__info">
+                            <div class="last-transaction__store miniButtonLabel">Apple store</div>
+                            <div class="last-transaction__date description">05.01.2020</div>
+                          </div>
+                        </div>
+                        <div class="last-transaction__cards-pay"><img class="last-transaction__img -red" src="../img/cards/visa-card-red.svg" alt="card">
+                          <div class="last-transaction__cards-info">
+                            <div class="last-transaction__number description">*4300</div>
+                            <div class="last-transaction__card-type description">Credit card</div>
+                          </div>
+                        </div>
+                        <div class="last-transaction__transactions-balance h7">- $135,00</div>
+                      </li>
+                      <li class="last-transaction__stroke">
+                        <div class="last-transaction__category"><img class="last-transaction__img" src="../img/categories-icons/food.svg" alt="food">
+                          <div class="last-transaction__info">
+                            <div class="last-transaction__store miniButtonLabel">Spar</div>
+                            <div class="last-transaction__date description">03.01.2020</div>
+                          </div>
+                        </div>
+                        <div class="last-transaction__cards-pay"><img class="last-transaction__img" src="../img/cards/visa-card-gray.svg" alt="card">
+                          <div class="last-transaction__cards-info">
+                            <div class="last-transaction__number description">*3288</div>
+                            <div class="last-transaction__card-type description">Credit card</div>
+                          </div>
+                        </div>
+                        <div class="last-transaction__transactions-balance h7">- $18,00</div>
+                      </li>
+                    </ul>
+                    <ul class="last-transaction__table swiper-slide">
+                      <li class="last-transaction__stroke">
+                        <div class="last-transaction__category"><img class="last-transaction__img" src="../img/categories-icons/pharmacy.svg" alt="pharmacy">
+                          <div class="last-transaction__info">
+                            <div class="last-transaction__store miniButtonLabel">Pharmacy</div>
+                            <div class="last-transaction__date description">04.01.2020</div>
+                          </div>
+                        </div>
+                        <div class="last-transaction__cards-pay"><img class="last-transaction__img" src="../img/cards/mastercard-card.svg" alt="card">
+                          <div class="last-transaction__cards-info">
+                            <div class="last-transaction__number description">*9054</div>
+                            <div class="last-transaction__card-type description">Credit card</div>
+                          </div>
+                        </div>
+                        <div class="last-transaction__transactions-balance h7">- $58,00</div>
+                      </li>
+                      <li class="last-transaction__stroke">
+                        <div class="last-transaction__category"><img class="last-transaction__img" src="../img/categories-icons/food.svg" alt="food">
+                          <div class="last-transaction__info">
+                            <div class="last-transaction__store miniButtonLabel">Spar</div>
+                            <div class="last-transaction__date description">03.01.2020</div>
+                          </div>
+                        </div>
+                        <div class="last-transaction__cards-pay"><img class="last-transaction__img" src="../img/cards/visa-card-gray.svg" alt="card">
+                          <div class="last-transaction__cards-info">
+                            <div class="last-transaction__number description">*3288</div>
+                            <div class="last-transaction__card-type description">Credit card</div>
+                          </div>
+                        </div>
+                        <div class="last-transaction__transactions-balance h7">- $22,00</div>
+                      </li>
+                      <li class="last-transaction__stroke">
+                        <div class="last-transaction__category"><img class="last-transaction__img" src="../img/categories-icons/сoffee.svg" alt="сoffee">
+                          <div class="last-transaction__info">
+                            <div class="last-transaction__store miniButtonLabel">Goodman Cafe</div>
+                            <div class="last-transaction__date description">04.01.2020</div>
+                          </div>
+                        </div>
+                        <div class="last-transaction__cards-pay"><img class="last-transaction__img -blue" src="../img/cards/visa-card-blue.svg" alt="card">
+                          <div class="last-transaction__cards-info">
+                            <div class="last-transaction__number description">*6589</div>
+                            <div class="last-transaction__card-type description">Credit card</div>
+                          </div>
+                        </div>
+                        <div class="last-transaction__transactions-balance h7">- $16,50</div>
+                      </li>
+                      <li class="last-transaction__stroke">
+                        <div class="last-transaction__category"><img class="last-transaction__img" src="../img/categories-icons/gamepad.svg" alt="gamepad">
+                          <div class="last-transaction__info">
+                            <div class="last-transaction__store miniButtonLabel">Apple store</div>
+                            <div class="last-transaction__date description">05.01.2020</div>
+                          </div>
+                        </div>
+                        <div class="last-transaction__cards-pay"><img class="last-transaction__img -red" src="../img/cards/visa-card-red.svg" alt="card">
+                          <div class="last-transaction__cards-info">
+                            <div class="last-transaction__number description">*4300</div>
+                            <div class="last-transaction__card-type description">Credit card</div>
+                          </div>
+                        </div>
+                        <div class="last-transaction__transactions-balance h7">- $135,00</div>
+                      </li>
+                    </ul>
+                  </div>
                 </section>
-                <section class="top-categories">
+                <section class="top-categories swiper-container">
                   <div class="top-categories__header"> 
                     <div class="top-categories__title h4">Top categories</div>
-                    <div class="top-categories__btns">
-                      <div class="top-categories__btn btn-prev"><img src="../img/icons/arrow-left.svg" alt="btn-prev"></div>
-                      <div class="top-categories__btn btn-next"><img src="../img/icons/arrow-right.svg" alt="btn-next"></div>
-                    </div>
+                    <div class="top-categories__btns"><img class="top-categories__btn btn-prev" src="../img/icons/arrow-left.svg" alt="btn-prev"><img class="top-categories__btn btn-next" src="../img/icons/arrow-right.svg" alt="btn-next"></div>
                   </div>
-                  <div class="top-cards">
-                    <div class="top-cards__item spend-this-week">
-                      <div class="top-cards__title text">Spend this week</div>
-                      <div class="top-cards__profit h6">$540</div>
-                      <div class="top-cards__percent textBold minus">↓2.5%</div>
+                  <div class="top-cards swiper-wrapper">
+                    <div class="top-cards__item swiper-slide">
+                      <div class="top-cards__text">
+                        <div class="top-cards__title text">Spend this week</div>
+                        <div class="top-cards__profit h6">$540</div>
+                        <div class="top-cards__percent textBold minus">↓2.5%</div>
+                      </div>
+                      <div class="top-cards__content"><img src="../img/test-no-front/chart.svg" alt="top-card-content"></div>
                     </div>
-                    <div class="top-cards__item total-cashback">
-                      <div class="top-cards__title text">Total cashback</div>
-                      <div class="top-cards__profit h6">$1,531</div>
-                      <div class="top-cards__percent textBold plus">+5.4%</div>
+                    <div class="top-cards__item swiper-slide">
+                      <div class="top-cards__text">
+                        <div class="top-cards__title text">Total cashback</div>
+                        <div class="top-cards__profit h6">$1,531</div>
+                        <div class="top-cards__percent textBold plus">+5.4%</div>
+                      </div>
+                      <div class="top-cards__content"><img src="../img/test-no-front/progress_bar.svg" alt="top-card-content"></div>
                     </div>
-                    <div class="top-cards__item spending-trend">
-                      <div class="top-cards__title text">Spending trend</div>
-                      <div class="top-cards__profit h6">87%</div>
-                      <div class="top-cards__percent textBold plus">+4.5%</div>
+                    <div class="top-cards__item spending-trend swiper-slide">
+                      <div class="top-cards__text">
+                        <div class="top-cards__title text">Spending trend</div>
+                        <div class="top-cards__profit h6">87%</div>
+                        <div class="top-cards__percent textBold plus">+4.5%</div>
+                      </div>
+                    </div>
+                    <div class="top-cards__item swiper-slide">
+                      <div class="top-cards__text">
+                        <div class="top-cards__title text">Spend this week</div>
+                        <div class="top-cards__profit h6">$540</div>
+                        <div class="top-cards__percent textBold minus">↓2.5%</div>
+                      </div>
+                      <div class="top-cards__content"><img src="../img/test-no-front/chart.svg" alt="top-card-content"></div>
+                    </div>
+                    <div class="top-cards__item spending-trend swiper-slide">
+                      <div class="top-cards__text">
+                        <div class="top-cards__title text">Spending trend</div>
+                        <div class="top-cards__profit h6">87%</div>
+                        <div class="top-cards__percent textBold plus">+4.5%</div>
+                      </div>
+                    </div>
+                    <div class="top-cards__item swiper-slide">
+                      <div class="top-cards__text">
+                        <div class="top-cards__title text">Total cashback</div>
+                        <div class="top-cards__profit h6">$1,531</div>
+                        <div class="top-cards__percent textBold plus">+5.4%</div>
+                      </div>
+                      <div class="top-cards__content"><img src="../img/test-no-front/progress_bar.svg" alt="top-card-content"></div>
                     </div>
                   </div>
                 </section>
@@ -266,6 +470,7 @@
         </div>
       </footer>
     </div>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="../js/bundle.js"></script>
   </body>
 </html>
