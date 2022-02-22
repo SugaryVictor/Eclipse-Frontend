@@ -1,0 +1,78 @@
+@import "../base/vars";
+.pop-up-style {
+    color: white;
+    background-color: $colorBasic;
+    border-radius: 20px;
+
+    padding: 30px;
+
+    z-index: 100;
+    position: absolute;
+}
+.title {
+    margin: 0 0 12px 0;
+}
+.body {
+    padding: 15px 0 0 0;
+    display: flex;
+    flex: 1 1;
+    border-top: 2px solid $colorBorder;
+
+    text-align: justify;
+    align-items: center;
+}
+.lorem {
+    margin: 0 auto;
+    color: $colorBtn;
+    width: 25vw;
+    line-height: 130%;
+}
+.hide {
+    display: none;
+}
+
+// POP-UP FOR ADD PRODUCT
+.overview {
+    &__pop-up {
+        left: 25%;
+        top: 20%;
+
+        height: 60vh;
+        width: 50vw;
+    }
+    &__pop-up-lorem {
+        margin: 30px auto 0 auto;
+    }
+}
+
+// POP-UP FOR FAST PAYMENT
+.fast {
+    &__input {
+        background-color: $colorBtn;
+        &.name {
+            width: 150px;
+        }
+        &.balance {
+            width: 70px;
+        }
+    }
+    input[type="text"] {
+        color: white;
+    }
+}
+
+// POP-UP FOR NAVIGATION
+.nav {
+    &__pop-up {
+        position: absolute;
+        right: 0;
+        border-radius: 0 0 0 20px;
+    }
+
+    &__pop-up-body {
+        height: 70vh;
+        width: 15vw;
+
+        align-items: start;
+    }
+}
