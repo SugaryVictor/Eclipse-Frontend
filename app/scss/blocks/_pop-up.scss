@@ -1,51 +1,40 @@
 @import "../base/vars";
-.pop-up-style {
-    color: white;
-    background-color: $colorBasic;
-    border-radius: 20px;
-
-    padding: 30px;
-
+.pop-up {
+    --transitionTime: 0.3s;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     z-index: 100;
-    position: absolute;
-}
-.title {
-    margin: 0 0 12px 0;
-}
-.body {
-    padding: 15px 0 0 0;
-    display: flex;
-    flex: 1 1;
-    border-top: 2px solid $colorBorder;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: center;
+    transition: var(--transitionTime);
 
-    text-align: justify;
-    align-items: center;
-}
-.lorem {
-    margin: 0 auto;
-    color: $colorBtn;
-    width: 25vw;
-    line-height: 130%;
-}
-.hide {
-    display: none;
-}
-
-// POP-UP FOR ADD PRODUCT
-.overview {
-    &__pop-up {
-        left: 25%;
-        top: 20%;
-
-        height: 60vh;
-        width: 50vw;
+    opacity: 0;
+    visibility: hidden;
+    &::before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
     }
-    &__pop-up-lorem {
-        margin: 30px auto 0 auto;
+    &__container {
+        position: relative;
+        width: 1000px;
+        margin: 50px auto;
+        display: none;
+        vertical-align: middle;
+        background-color: $colorBtn;
+        border-radius: 20px;
+        cursor: default;
+        text-align: left;
+        padding: 20px 30px;
     }
 }
-
-// POP-UP FOR FAST PAYMENT
 .fast {
     &__input {
         background-color: $colorBtn;
@@ -60,19 +49,44 @@
         color: white;
     }
 }
-
-// POP-UP FOR NAVIGATION
-.nav {
-    &__pop-up {
-        position: absolute;
-        right: 0;
-        border-radius: 0 0 0 20px;
+@media (max-width: 1024px) {
+    .pop-up__container {
+        width: 90%;
     }
+}
 
-    &__pop-up-body {
-        height: 70vh;
-        width: 15vw;
+// CLASSES FOR JS
 
-        align-items: start;
-    }
+.open {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--transitionTime), var(--transitionTime);
+}
+.pop-up-open {
+    display: inline-block;
+}
+.fade {
+    transition: opacity var(--transitionTime);
+    opacity: 0;
+}
+.fade.animate-open {
+    opacity: 1;
+    transition: opacity var(--transitionTime);
+}
+
+.content {
+    min-height: 200vh;
+}
+
+.disable-scroll {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+.closeTag {
+    display: none;
 }
