@@ -20,6 +20,7 @@
     // .fast__title
     &__title {
         margin: 0 21px 0 0;
+        min-width: 6.88vw;
     }
 
     // .fast__tags-body
@@ -51,10 +52,11 @@
 
     // .fast__tag
     &__tag {
-        display: flex;
-        flex: 1 1;
+        display: inline-flex;
         position: relative;
-
+        &.swiper-slide {
+            width: auto;
+        }
         &.btn {
             padding: 10px 16px 10px 31px;
             border-radius: 100px;
@@ -63,6 +65,7 @@
 
     // .fast__category
     &__category {
+        display: inline-flex;
         margin: 0 9px 0 0;
         &::before {
             content: "";
@@ -77,6 +80,7 @@
 
     // .fast__balance
     &__balance {
+        display: inline-flex;
     }
 }
 ////////////////////////////////////////////////////////////////
@@ -98,4 +102,16 @@
 }
 .amethyst::before {
     background-color: $colorAmethyst;
+}
+.magenta::before {
+    background-color: $colorMagenta;
+}
+.skies::before {
+    background-color: $colorFrostySkies;
+}
+.verdepom::before {
+    background-color: $colorVerdepom;
+}
+.white::before {
+    background-color: #f5f5f5;
 }

@@ -1,8 +1,8 @@
 class PopUp {
     constructor(options) {
 		let defaultOptions = {
-			open: () => {},
-			close: () => {},
+			isOpen: () => {},
+			isClose: () => {},
 		};
 		this.options = Object.assign(defaultOptions, options);
 		this.popUp = document.querySelector('.pop-up');
@@ -64,7 +64,7 @@ class PopUp {
         this.popUpContainer.classList.add(this.animation);
     
         setTimeout(()=> {
-            this.options.open(this);
+            this.options.isOpen(this);
             this.popUpContainer.classList.add('animate-open');
             this.isOpen = true;
         }, this.speed);

@@ -3,11 +3,14 @@
     display: flex;
     flex-direction: column;
     flex: 1 1;
+    z-index: 10 !important;
     // .last-transaction__header
     &__header {
         display: flex;
         justify-content: space-between;
         margin: 0 0 18px 0;
+        background-color: #000000;
+        z-index: 10;
     }
 
     // .last-transaction__title
@@ -33,9 +36,10 @@
 
 // TABLE
 .last-transaction {
-    overflow: hidden;
+    // overflow: hidden;
     // .last-transaction__table
     &__table {
+        z-index: 9 !important;
     }
 
     // .last-transaction__stroke
@@ -45,6 +49,9 @@
         align-items: center;
         cursor: pointer;
         margin: 0 0 26px 0;
+        &.swiper-slide {
+            flex-shrink: 1;
+        }
     }
 
     // .last-transaction__category

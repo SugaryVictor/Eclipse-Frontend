@@ -191,6 +191,35 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/array-method-has-species-support.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/core-js/internals/array-method-has-species-support.js ***!
+  \****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
+var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
+var V8_VERSION = __webpack_require__(/*! ../internals/engine-v8-version */ "./node_modules/core-js/internals/engine-v8-version.js");
+
+var SPECIES = wellKnownSymbol('species');
+
+module.exports = function (METHOD_NAME) {
+  // We can't use this feature detection in V8 since it causes
+  // deoptimization and serious performance degradation
+  // https://github.com/zloirock/core-js/issues/677
+  return V8_VERSION >= 51 || !fails(function () {
+    var array = [];
+    var constructor = array.constructor = {};
+    constructor[SPECIES] = function () {
+      return { foo: 1 };
+    };
+    return array[METHOD_NAME](Boolean).foo !== 1;
+  });
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/array-method-is-strict.js":
 /*!******************************************************************!*\
   !*** ./node_modules/core-js/internals/array-method-is-strict.js ***!
@@ -392,6 +421,27 @@ module.exports = function (bitmap, value) {
     writable: !(bitmap & 4),
     value: value
   };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/create-property.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/internals/create-property.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var toPropertyKey = __webpack_require__(/*! ../internals/to-property-key */ "./node_modules/core-js/internals/to-property-key.js");
+var definePropertyModule = __webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js");
+var createPropertyDescriptor = __webpack_require__(/*! ../internals/create-property-descriptor */ "./node_modules/core-js/internals/create-property-descriptor.js");
+
+module.exports = function (object, key, value) {
+  var propertyKey = toPropertyKey(key);
+  if (propertyKey in object) definePropertyModule.f(object, propertyKey, createPropertyDescriptor(0, value));
+  else object[propertyKey] = value;
 };
 
 
@@ -2203,6 +2253,80 @@ module.exports = '\u0009\u000A\u000B\u000C\u000D\u0020\u00A0\u1680\u2000\u2001\u
 
 /***/ }),
 
+/***/ "./node_modules/core-js/modules/es.array.concat.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.array.concat.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
+var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
+var isArray = __webpack_require__(/*! ../internals/is-array */ "./node_modules/core-js/internals/is-array.js");
+var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
+var toObject = __webpack_require__(/*! ../internals/to-object */ "./node_modules/core-js/internals/to-object.js");
+var lengthOfArrayLike = __webpack_require__(/*! ../internals/length-of-array-like */ "./node_modules/core-js/internals/length-of-array-like.js");
+var createProperty = __webpack_require__(/*! ../internals/create-property */ "./node_modules/core-js/internals/create-property.js");
+var arraySpeciesCreate = __webpack_require__(/*! ../internals/array-species-create */ "./node_modules/core-js/internals/array-species-create.js");
+var arrayMethodHasSpeciesSupport = __webpack_require__(/*! ../internals/array-method-has-species-support */ "./node_modules/core-js/internals/array-method-has-species-support.js");
+var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
+var V8_VERSION = __webpack_require__(/*! ../internals/engine-v8-version */ "./node_modules/core-js/internals/engine-v8-version.js");
+
+var IS_CONCAT_SPREADABLE = wellKnownSymbol('isConcatSpreadable');
+var MAX_SAFE_INTEGER = 0x1FFFFFFFFFFFFF;
+var MAXIMUM_ALLOWED_INDEX_EXCEEDED = 'Maximum allowed index exceeded';
+var TypeError = global.TypeError;
+
+// We can't use this feature detection in V8 since it causes
+// deoptimization and serious performance degradation
+// https://github.com/zloirock/core-js/issues/679
+var IS_CONCAT_SPREADABLE_SUPPORT = V8_VERSION >= 51 || !fails(function () {
+  var array = [];
+  array[IS_CONCAT_SPREADABLE] = false;
+  return array.concat()[0] !== array;
+});
+
+var SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('concat');
+
+var isConcatSpreadable = function (O) {
+  if (!isObject(O)) return false;
+  var spreadable = O[IS_CONCAT_SPREADABLE];
+  return spreadable !== undefined ? !!spreadable : isArray(O);
+};
+
+var FORCED = !IS_CONCAT_SPREADABLE_SUPPORT || !SPECIES_SUPPORT;
+
+// `Array.prototype.concat` method
+// https://tc39.es/ecma262/#sec-array.prototype.concat
+// with adding support of @@isConcatSpreadable and @@species
+$({ target: 'Array', proto: true, forced: FORCED }, {
+  // eslint-disable-next-line no-unused-vars -- required for `.length`
+  concat: function concat(arg) {
+    var O = toObject(this);
+    var A = arraySpeciesCreate(O, 0);
+    var n = 0;
+    var i, k, length, len, E;
+    for (i = -1, length = arguments.length; i < length; i++) {
+      E = i === -1 ? O : arguments[i];
+      if (isConcatSpreadable(E)) {
+        len = lengthOfArrayLike(E);
+        if (n + len > MAX_SAFE_INTEGER) throw TypeError(MAXIMUM_ALLOWED_INDEX_EXCEEDED);
+        for (k = 0; k < len; k++, n++) if (k in E) createProperty(A, n, E[k]);
+      } else {
+        if (n >= MAX_SAFE_INTEGER) throw TypeError(MAXIMUM_ALLOWED_INDEX_EXCEEDED);
+        createProperty(A, n++, E);
+      }
+    }
+    A.length = n;
+    return A;
+  }
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/es.array.for-each.js":
 /*!***********************************************************!*\
   !*** ./node_modules/core-js/modules/es.array.for-each.js ***!
@@ -2392,6 +2516,115 @@ $({ global: true, bind: true, forced: MSIE }, {
 
 /***/ }),
 
+/***/ "./app/js/modules/cards.js":
+/*!*********************************!*\
+  !*** ./app/js/modules/cards.js ***!
+  \*********************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.concat.js */ "./node_modules/core-js/modules/es.array.concat.js");
+/* harmony import */ var core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.object.define-property.js */ "./node_modules/core-js/modules/es.object.define-property.js");
+
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+var MenuCard = /*#__PURE__*/function () {
+  function MenuCard(colorClass, src, alt, balance, cardHolder, finLogo, finLogoAlt, parentSelector) {
+    _classCallCheck(this, MenuCard);
+
+    this.src = src;
+    this.alt = alt;
+    this.finLogo = finLogo;
+    this.finLogoAlt = finLogoAlt;
+    this.balance = balance;
+    this.cardHolder = cardHolder;
+    this.colorClass = colorClass;
+    this.parent = document.querySelector(parentSelector);
+  } // СОБИРАЕМ ВЁРСТКУ
+
+
+  _createClass(MenuCard, [{
+    key: "render",
+    value: function render() {
+      var element = document.createElement('div');
+      element.classList.add('card__body', 'swiper-slide', this.colorClass);
+      element.innerHTML = "\n              <div class=\"card__currency\"> \n                <img src=".concat(this.src, " alt=").concat(this.alt, "/>\n                <img src=\"../img/icons/chip.svg\" alt=\"CHIP\"/></div>\n              <div class=\"card__balance h2\">").concat(this.balance, "</div>\n              <div class=\"card__info\">\n                <div class=\"card__card-holder\">Card holder<span>").concat(this.cardHolder, "</span></div>\n                <div class=\"card__fin-logo\">\n                    <img src=").concat(this.finLogo, " alt=").concat(this.finLogoAlt, "/></div>\n              </div>\n            </div>\n        ");
+      this.parent.append(element);
+    }
+  }]);
+
+  return MenuCard;
+}(); // РЕНДЕРИМ КАРТОЧКИ
+
+
+new MenuCard("orange", "../img/logos/btc-logo.svg", "BTC", "12,500", "Orion", "../img/logos/visa-logo.svg", "visa", '.swiper-wrapper').render();
+new MenuCard("gray", "../img/logos/euro-logo.svg", "EURO", "54,302", "Alien Pixels", "../img/logos/mastercard-logo.svg", "mastercard", '.swiper-wrapper').render();
+new MenuCard("red", "../img/logos/usd-logo.svg", "USD", "38,864", "ALEX", "../img/logos/visa-logo.svg", "visa", '.swiper-wrapper').render();
+new MenuCard("manteray", "../img/logos/usd-logo.svg", "USD", "12,500", "Sugary", "../img/logos/mastercard-logo.svg", "mastercard", '.swiper-wrapper').render();
+new MenuCard("red", "../img/logos/usd-logo.svg", "USD", "44,246", "ALEX", "../img/logos/visa-logo.svg", "visa", '.swiper-wrapper').render();
+new MenuCard("bigSur", "../img/logos/usd-logo.svg", "USD", "54,302", "Victor Chepkasov", "../img/logos/visa-logo.svg", "visa", '.swiper-wrapper').render();
+
+/***/ }),
+
+/***/ "./app/js/modules/overview.js":
+/*!************************************!*\
+  !*** ./app/js/modules/overview.js ***!
+  \************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.concat.js */ "./node_modules/core-js/modules/es.array.concat.js");
+/* harmony import */ var core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.object.define-property.js */ "./node_modules/core-js/modules/es.object.define-property.js");
+
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+var Overview = /*#__PURE__*/function () {
+  function Overview(title, balance, percent, lastMonth, plusMinus, parentSelector) {
+    _classCallCheck(this, Overview);
+
+    this.title = title;
+    this.balance = balance;
+    this.percent = percent;
+    this.plusMinus = plusMinus;
+    this.lastMonth = lastMonth;
+    this.parent = document.querySelector(parentSelector);
+  } // СОБИРАЕМ ВЁРСТКУ
+
+
+  _createClass(Overview, [{
+    key: "render",
+    value: function render() {
+      var element = document.createElement('div');
+      element.classList.add('overview__transactions-item');
+      element.innerHTML = "\n          <div class=\"overview__title buttonText\">".concat(this.title, "</div>\n          <div class=\"overview__balance-info\"> \n            <div class=\"overview__balance h3\">$").concat(this.balance, "</div>\n            <div class=\"overview__percent ").concat(this.plusMinus, "\"> ").concat(this.percent, "%</div>\n          </div>\n          <div class=\"overview__last-month text\">Compared to $").concat(this.lastMonth, " last month</div>\n        ");
+      this.parent.append(element);
+    }
+  }]);
+
+  return Overview;
+}();
+
+new Overview("Income", 32.134, 2.5, 21.340, "plus", ".overview__transactions").render();
+new Overview("Expense", 4.541, 2.5, 21.000, "minus", ".overview__transactions").render();
+new Overview("Cashback", 1.324, 4.5, 21.000, "plus", ".overview__transactions").render();
+new Overview("Monthly turnover", 87.324, 31, 196.129, "minus", ".overview__transactions").render();
+
+/***/ }),
+
 /***/ "./app/js/modules/popUp.js":
 /*!*********************************!*\
   !*** ./app/js/modules/popUp.js ***!
@@ -2428,8 +2661,8 @@ var PopUp = /*#__PURE__*/function () {
     _classCallCheck(this, PopUp);
 
     var defaultOptions = {
-      open: function open() {},
-      close: function close() {}
+      isOpen: function isOpen() {},
+      isClose: function isClose() {}
     };
     this.options = Object.assign(defaultOptions, options);
     this.popUp = document.querySelector('.pop-up');
@@ -2491,7 +2724,7 @@ var PopUp = /*#__PURE__*/function () {
       this.popUpContainer.classList.add('pop-up-open');
       this.popUpContainer.classList.add(this.animation);
       setTimeout(function () {
-        _this.options.open(_this);
+        _this.options.isOpen(_this);
 
         _this.popUpContainer.classList.add('animate-open');
 
@@ -2606,10 +2839,8 @@ var topCategories = new Swiper(sliderTopCategories, {
 }); // SLIDER FOR LAST TRANSACTION
 
 var lastTransaction = new Swiper(sliderLastTransaction, {
-  slidesPerView: 1,
-  spaceBetween: 0,
-  loop: false,
-  slidesPerGroup: 1,
+  direction: "vertical",
+  slidesPerView: 4,
   //   Navigation arrows
   navigation: {
     nextEl: '.last-transaction__btn.btn-next',
@@ -2628,6 +2859,123 @@ var fast = new Swiper(sliderFast, {
   slidesPerGroup: 2,
   spaceBetween: 10
 });
+
+/***/ }),
+
+/***/ "./app/js/modules/tags.js":
+/*!********************************!*\
+  !*** ./app/js/modules/tags.js ***!
+  \********************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.concat.js */ "./node_modules/core-js/modules/es.array.concat.js");
+/* harmony import */ var core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.object.define-property.js */ "./node_modules/core-js/modules/es.object.define-property.js");
+
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+var Tags = /*#__PURE__*/function () {
+  function Tags(colorTag, category, balance, parentSelector) {
+    _classCallCheck(this, Tags);
+
+    this.colorTag = colorTag;
+    this.category = category;
+    this.balance = balance;
+    this.parent = document.querySelector(parentSelector);
+  } // СОБИРАЕМ ВЁРСТКУ
+
+
+  _createClass(Tags, [{
+    key: "render",
+    value: function render() {
+      var tag = document.createElement('li');
+      tag.classList.add('fast__tag', 'btn', 'swiper-slide');
+      tag.innerHTML = "\n            <div class=\"fast__category text ".concat(this.colorTag, "\">").concat(this.category, "</div>\n            <div class=\"fast__balance textBold\">$").concat(this.balance, "</div>\n        ");
+      this.parent.append(tag);
+    }
+  }]);
+
+  return Tags;
+}(); // СОЗДАЁМ ТЕГИ
+
+
+new Tags("azure", "Training", 650, "ul.fast__tegs-items.swiper-wrapper").render();
+new Tags("zinc", "Internet", 45, "ul.fast__tegs-items.swiper-wrapper").render();
+new Tags("spring", "Gas", 135, "ul.fast__tegs-items.swiper-wrapper").render();
+new Tags("mango", "Cinema", 15, "ul.fast__tegs-items.swiper-wrapper").render();
+new Tags("verdepom", "Clothes", 700, "ul.fast__tegs-items.swiper-wrapper").render();
+new Tags("white", "Apple Store", 1000, "ul.fast__tegs-items.swiper-wrapper").render();
+new Tags("amethyst", "Coffee", 50, "ul.fast__tegs-items.swiper-wrapper").render();
+new Tags("skies", "Water", 45, "ul.fast__tegs-items.swiper-wrapper").render();
+new Tags("magenta", "Hair", 10, "ul.fast__tegs-items.swiper-wrapper").render();
+
+/***/ }),
+
+/***/ "./app/js/modules/transactions.js":
+/*!****************************************!*\
+  !*** ./app/js/modules/transactions.js ***!
+  \****************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.concat.js */ "./node_modules/core-js/modules/es.array.concat.js");
+/* harmony import */ var core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.object.define-property.js */ "./node_modules/core-js/modules/es.object.define-property.js");
+
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+var LastTransactions = /*#__PURE__*/function () {
+  function LastTransactions(src, alt, store, date, cardsPay, cardsPayAlt, cardNumber, cardType, balance, plusMinus, parentSelector) {
+    _classCallCheck(this, LastTransactions);
+
+    this.src = src;
+    this.alt = alt;
+    this.store = store;
+    this.date = date;
+    this.cardsPay = cardsPay;
+    this.cardsPayAlt = cardsPayAlt;
+    this.cardNumber = cardNumber;
+    this.cardType = cardType;
+    this.balance = balance;
+    this.plusMinus = plusMinus; // this.color = color;
+
+    this.parent = document.querySelector(parentSelector);
+  }
+
+  _createClass(LastTransactions, [{
+    key: "render",
+    value: function render() {
+      var element = document.createElement('li');
+      element.classList.add("last-transaction__stroke", "swiper-slide");
+      element.innerHTML = "\n            <div class=\"last-transaction__category\"><img class=\"last-transaction__img\" src=".concat(this.src, " alt=").concat(this.alt, "/>\n              <div class=\"last-transaction__info\">\n                <div class=\"last-transaction__store miniButtonLabel\">").concat(this.store, "</div>\n                <div class=\"last-transaction__date description\">").concat(this.date, "</div>\n              </div>\n            </div>\n            <div class=\"last-transaction__cards-pay\">\n                <img class=\"last-transaction__img\" src=").concat(this.cardsPay, " alt=").concat(this.cardsPayAlt, "/>\n              <div class=\"last-transaction__cards-info\">\n                <div class=\"last-transaction__number description\">").concat(this.cardNumber, "</div>\n                <div class=\"last-transaction__card-type description\">").concat(this.cardType, "</div>\n              </div>\n            </div>\n            <div class=\"last-transaction__transactions-balance h7\">").concat(this.plusMinus, "$").concat(this.balance, "</div>\n            ");
+      this.parent.append(element);
+    }
+  }]);
+
+  return LastTransactions;
+}();
+
+new LastTransactions("../img/categories-icons/gamepad.svg", "gamepad", "Apple store", "05.01.2020", "../img/cards/visa-card-red.svg", "card", "*4300", "Credit card", 135, "- ", ".last-transaction__table").render();
+new LastTransactions("../img/categories-icons/сoffee.svg", "coffee", "Starbucks Cafe", "04.01.2020", "../img/cards/visa-card-blue.svg", "card", "*6589", "Credit card", 16.50, "- ", ".last-transaction__table").render();
+new LastTransactions("../img/categories-icons/pharmacy.svg", "pharmacy", "Pharmacy", "04.01.2020", "../img/cards/mastercard-card.svg", "card", "*9054", "Credit card", 58.00, "- ", ".last-transaction__table").render();
+new LastTransactions("../img/categories-icons/food.svg", "food", "Spar", "03.01.2020", "../img/cards/visa-card-red.svg", "card", "*3288", "Credit card", 18.00, "- ", ".last-transaction__table").render();
+new LastTransactions("../img/categories-icons/pharmacy.svg", "pharmacy", "Pharmacy", "05.01.2020", "../img/cards/mastercard-card.svg", "card", "*3288", "Credit card", 35, "- ", ".last-transaction__table").render();
+new LastTransactions("../img/categories-icons/pharmacy.svg", "pharmacy", "Pharmacy", "05.01.2020", "../img/cards/mastercard-card.svg", "card", "*3288", "Credit card", 35, "- ", ".last-transaction__table").render();
+new LastTransactions("../img/categories-icons/сoffee.svg", "coffee", "Starbucks Cafe", "04.01.2020", "../img/cards/visa-card-blue.svg", "card", "*6589", "Credit card", 16.50, "- ", ".last-transaction__table").render();
+new LastTransactions("../img/categories-icons/pharmacy.svg", "pharmacy", "Pharmacy", "05.01.2020", "../img/cards/mastercard-card.svg", "card", "*3288", "Credit card", 35, "- ", ".last-transaction__table").render();
 
 /***/ })
 
@@ -2692,8 +3040,24 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_swipers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/swipers.js */ "./app/js/modules/swipers.js");
 /* harmony import */ var _modules_popUp_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/popUp.js */ "./app/js/modules/popUp.js");
+/* harmony import */ var _modules_cards_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/cards.js */ "./app/js/modules/cards.js");
+/* harmony import */ var _modules_tags_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/tags.js */ "./app/js/modules/tags.js");
+/* harmony import */ var _modules_transactions_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/transactions.js */ "./app/js/modules/transactions.js");
+/* harmony import */ var _modules_overview_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/overview.js */ "./app/js/modules/overview.js");
 
 
+
+
+
+
+window.addEventListener('DOMContentLoaded', function () {
+  _modules_swipers_js__WEBPACK_IMPORTED_MODULE_0__();
+  _modules_popUp_js__WEBPACK_IMPORTED_MODULE_1__();
+  _modules_cards_js__WEBPACK_IMPORTED_MODULE_2__();
+  _modules_tags_js__WEBPACK_IMPORTED_MODULE_3__();
+  _modules_transactions_js__WEBPACK_IMPORTED_MODULE_4__();
+  _modules_overview_js__WEBPACK_IMPORTED_MODULE_5__();
+});
 })();
 
 /******/ })()

@@ -19,10 +19,8 @@ const topCategories = new Swiper(sliderTopCategories, {
 
 // SLIDER FOR LAST TRANSACTION
 const lastTransaction = new Swiper(sliderLastTransaction, {  
-	slidesPerView: 1,
-	spaceBetween: 0,
-	loop: false,
-    slidesPerGroup: 1,
+    direction: "vertical",
+    slidesPerView: 4,
 
 //   Navigation arrows
     navigation: {
