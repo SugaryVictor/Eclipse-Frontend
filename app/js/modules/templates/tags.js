@@ -7,6 +7,7 @@ class Tags {
     }
 
     // СОБИРАЕМ ВЁРСТКУ
+    
     render() {
         const tag = document.createElement('li');
         tag.classList.add('fast__tag', 'btn', 'swiper-slide');

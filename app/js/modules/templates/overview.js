@@ -10,6 +10,7 @@ class Overview {
     }
 
     // СОБИРАЕМ ВЁРСТКУ
+    
     render() {
         const element = document.createElement('div');
         element.classList.add('overview__transactions-item');

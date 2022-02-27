@@ -2516,115 +2516,6 @@ $({ global: true, bind: true, forced: MSIE }, {
 
 /***/ }),
 
-/***/ "./app/js/modules/cards.js":
-/*!*********************************!*\
-  !*** ./app/js/modules/cards.js ***!
-  \*********************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.concat.js */ "./node_modules/core-js/modules/es.array.concat.js");
-/* harmony import */ var core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.object.define-property.js */ "./node_modules/core-js/modules/es.object.define-property.js");
-
-
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-var MenuCard = /*#__PURE__*/function () {
-  function MenuCard(colorClass, src, alt, balance, cardHolder, finLogo, finLogoAlt, parentSelector) {
-    _classCallCheck(this, MenuCard);
-
-    this.src = src;
-    this.alt = alt;
-    this.finLogo = finLogo;
-    this.finLogoAlt = finLogoAlt;
-    this.balance = balance;
-    this.cardHolder = cardHolder;
-    this.colorClass = colorClass;
-    this.parent = document.querySelector(parentSelector);
-  } // СОБИРАЕМ ВЁРСТКУ
-
-
-  _createClass(MenuCard, [{
-    key: "render",
-    value: function render() {
-      var element = document.createElement('div');
-      element.classList.add('card__body', 'swiper-slide', this.colorClass);
-      element.innerHTML = "\n              <div class=\"card__currency\"> \n                <img src=".concat(this.src, " alt=").concat(this.alt, "/>\n                <img src=\"../img/icons/chip.svg\" alt=\"CHIP\"/></div>\n              <div class=\"card__balance h2\">").concat(this.balance, "</div>\n              <div class=\"card__info\">\n                <div class=\"card__card-holder\">Card holder<span>").concat(this.cardHolder, "</span></div>\n                <div class=\"card__fin-logo\">\n                    <img src=").concat(this.finLogo, " alt=").concat(this.finLogoAlt, "/></div>\n              </div>\n            </div>\n        ");
-      this.parent.append(element);
-    }
-  }]);
-
-  return MenuCard;
-}(); // РЕНДЕРИМ КАРТОЧКИ
-
-
-new MenuCard("orange", "../img/logos/btc-logo.svg", "BTC", "12,500", "Orion", "../img/logos/visa-logo.svg", "visa", '.swiper-wrapper').render();
-new MenuCard("gray", "../img/logos/euro-logo.svg", "EURO", "54,302", "Alien Pixels", "../img/logos/mastercard-logo.svg", "mastercard", '.swiper-wrapper').render();
-new MenuCard("red", "../img/logos/usd-logo.svg", "USD", "38,864", "ALEX", "../img/logos/visa-logo.svg", "visa", '.swiper-wrapper').render();
-new MenuCard("manteray", "../img/logos/usd-logo.svg", "USD", "12,500", "Sugary", "../img/logos/mastercard-logo.svg", "mastercard", '.swiper-wrapper').render();
-new MenuCard("red", "../img/logos/usd-logo.svg", "USD", "44,246", "ALEX", "../img/logos/visa-logo.svg", "visa", '.swiper-wrapper').render();
-new MenuCard("bigSur", "../img/logos/usd-logo.svg", "USD", "54,302", "Victor Chepkasov", "../img/logos/visa-logo.svg", "visa", '.swiper-wrapper').render();
-
-/***/ }),
-
-/***/ "./app/js/modules/overview.js":
-/*!************************************!*\
-  !*** ./app/js/modules/overview.js ***!
-  \************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.concat.js */ "./node_modules/core-js/modules/es.array.concat.js");
-/* harmony import */ var core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.object.define-property.js */ "./node_modules/core-js/modules/es.object.define-property.js");
-
-
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-var Overview = /*#__PURE__*/function () {
-  function Overview(title, balance, percent, lastMonth, plusMinus, parentSelector) {
-    _classCallCheck(this, Overview);
-
-    this.title = title;
-    this.balance = balance;
-    this.percent = percent;
-    this.plusMinus = plusMinus;
-    this.lastMonth = lastMonth;
-    this.parent = document.querySelector(parentSelector);
-  } // СОБИРАЕМ ВЁРСТКУ
-
-
-  _createClass(Overview, [{
-    key: "render",
-    value: function render() {
-      var element = document.createElement('div');
-      element.classList.add('overview__transactions-item');
-      element.innerHTML = "\n          <div class=\"overview__title buttonText\">".concat(this.title, "</div>\n          <div class=\"overview__balance-info\"> \n            <div class=\"overview__balance h3\">$").concat(this.balance, "</div>\n            <div class=\"overview__percent ").concat(this.plusMinus, "\"> ").concat(this.percent, "%</div>\n          </div>\n          <div class=\"overview__last-month text\">Compared to $").concat(this.lastMonth, " last month</div>\n        ");
-      this.parent.append(element);
-    }
-  }]);
-
-  return Overview;
-}();
-
-new Overview("Income", 32.134, 2.5, 21.340, "plus", ".overview__transactions").render();
-new Overview("Expense", 4.541, 2.5, 21.000, "minus", ".overview__transactions").render();
-new Overview("Cashback", 1.324, 4.5, 21.000, "plus", ".overview__transactions").render();
-new Overview("Monthly turnover", 87.324, 31, 196.129, "minus", ".overview__transactions").render();
-
-/***/ }),
-
 /***/ "./app/js/modules/popUp.js":
 /*!*********************************!*\
   !*** ./app/js/modules/popUp.js ***!
@@ -2821,40 +2712,37 @@ addBtn.addEventListener('click', function (e) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var sliderTopCategories = document.querySelector('.top-categories');
-var sliderLastTransaction = document.querySelector('.last-transaction');
-var sliderCards = document.querySelector('.card');
-var sliderFast = document.querySelector('.fast__tegs-wrapper'); // SLIDER FOR TOP_CATEGORIES
-
-var topCategories = new Swiper(sliderTopCategories, {
-  slidesPerView: 3,
-  spaceBetween: 9,
-  loop: false,
-  slidesPerGroup: 3,
-  //   Navigation arrows
-  navigation: {
-    nextEl: '.top-categories__btn.btn-next',
-    prevEl: '.top-categories__btn.btn-prev'
-  }
-}); // SLIDER FOR LAST TRANSACTION
-
-var lastTransaction = new Swiper(sliderLastTransaction, {
-  direction: "vertical",
+// SLIDER FOR LAST TRANSACTION
+var lastTransaction = new Swiper('.last-transaction', {
   slidesPerView: 4,
-  //   Navigation arrows
+  slidesPerGroup: 2,
+  direction: "vertical",
+  //  Navigation arrows
   navigation: {
     nextEl: '.last-transaction__btn.btn-next',
     prevEl: '.last-transaction__btn.btn-prev'
   }
-}); // SLIDER FOR LAST TRANSACTION
+}); // SLIDER FOR TOP_CATEGORIES
 
-var cards = new Swiper(sliderCards, {
+var topCategories = new Swiper('.top-categories', {
+  slidesPerView: 3,
+  spaceBetween: 9,
+  loop: false,
+  slidesPerGroup: 3,
+  //  Navigation arrows
+  navigation: {
+    nextEl: '.top-categories__btn.btn-next',
+    prevEl: '.top-categories__btn.btn-prev'
+  }
+}); // SLIDER FOR CARDS
+
+var cards = new Swiper('.card', {
   slidesPerView: 3,
   spaceBetween: 25,
   loop: false
 }); // SLIDER FOR FAST PEYMENT
 
-var fast = new Swiper(sliderFast, {
+var fast = new Swiper('.fast__tegs-wrapper', {
   slidesPerView: 'auto',
   slidesPerGroup: 2,
   spaceBetween: 10
@@ -2862,10 +2750,119 @@ var fast = new Swiper(sliderFast, {
 
 /***/ }),
 
-/***/ "./app/js/modules/tags.js":
-/*!********************************!*\
-  !*** ./app/js/modules/tags.js ***!
-  \********************************/
+/***/ "./app/js/modules/templates/cards.js":
+/*!*******************************************!*\
+  !*** ./app/js/modules/templates/cards.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.concat.js */ "./node_modules/core-js/modules/es.array.concat.js");
+/* harmony import */ var core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.object.define-property.js */ "./node_modules/core-js/modules/es.object.define-property.js");
+
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+var MenuCard = /*#__PURE__*/function () {
+  function MenuCard(colorClass, src, alt, balance, cardHolder, finLogo, finLogoAlt, parentSelector) {
+    _classCallCheck(this, MenuCard);
+
+    this.src = src;
+    this.alt = alt;
+    this.finLogo = finLogo;
+    this.finLogoAlt = finLogoAlt;
+    this.balance = balance;
+    this.cardHolder = cardHolder;
+    this.colorClass = colorClass;
+    this.parent = document.querySelector(parentSelector);
+  } // СОБИРАЕМ ВЁРСТКУ
+
+
+  _createClass(MenuCard, [{
+    key: "render",
+    value: function render() {
+      var element = document.createElement('div');
+      element.classList.add('card__body', 'swiper-slide', this.colorClass);
+      element.innerHTML = "\n              <div class=\"card__currency\"> \n                <img src=".concat(this.src, " alt=").concat(this.alt, "/>\n                <img src=\"../img/icons/chip.svg\" alt=\"CHIP\"/></div>\n              <div class=\"card__balance h2\">").concat(this.balance, "</div>\n              <div class=\"card__info\">\n                <div class=\"card__card-holder\">Card holder<span>").concat(this.cardHolder, "</span></div>\n                <div class=\"card__fin-logo\">\n                    <img src=").concat(this.finLogo, " alt=").concat(this.finLogoAlt, "/></div>\n              </div>\n            </div>\n        ");
+      this.parent.append(element);
+    }
+  }]);
+
+  return MenuCard;
+}(); // РЕНДЕРИМ КАРТОЧКИ
+
+
+new MenuCard("orange", "../img/logos/btc-logo.svg", "BTC", "12,500", "Orion", "../img/logos/visa-logo.svg", "visa", '.swiper-wrapper').render();
+new MenuCard("gray", "../img/logos/euro-logo.svg", "EURO", "54,302", "Alien Pixels", "../img/logos/mastercard-logo.svg", "mastercard", '.swiper-wrapper').render();
+new MenuCard("red", "../img/logos/usd-logo.svg", "USD", "38,864", "ALEX", "../img/logos/visa-logo.svg", "visa", '.swiper-wrapper').render();
+new MenuCard("manteray", "../img/logos/usd-logo.svg", "USD", "12,500", "Sugary", "../img/logos/mastercard-logo.svg", "mastercard", '.swiper-wrapper').render();
+new MenuCard("red", "../img/logos/usd-logo.svg", "USD", "44,246", "ALEX", "../img/logos/visa-logo.svg", "visa", '.swiper-wrapper').render();
+new MenuCard("bigSur", "../img/logos/usd-logo.svg", "USD", "54,302", "Victor Chepkasov", "../img/logos/visa-logo.svg", "visa", '.swiper-wrapper').render();
+
+/***/ }),
+
+/***/ "./app/js/modules/templates/overview.js":
+/*!**********************************************!*\
+  !*** ./app/js/modules/templates/overview.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.concat.js */ "./node_modules/core-js/modules/es.array.concat.js");
+/* harmony import */ var core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.object.define-property.js */ "./node_modules/core-js/modules/es.object.define-property.js");
+
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+var Overview = /*#__PURE__*/function () {
+  function Overview(title, balance, percent, lastMonth, plusMinus, parentSelector) {
+    _classCallCheck(this, Overview);
+
+    this.title = title;
+    this.balance = balance;
+    this.percent = percent;
+    this.plusMinus = plusMinus;
+    this.lastMonth = lastMonth;
+    this.parent = document.querySelector(parentSelector);
+  } // СОБИРАЕМ ВЁРСТКУ
+
+
+  _createClass(Overview, [{
+    key: "render",
+    value: function render() {
+      var element = document.createElement('div');
+      element.classList.add('overview__transactions-item');
+      element.innerHTML = "\n          <div class=\"overview__title buttonText\">".concat(this.title, "</div>\n          <div class=\"overview__balance-info\"> \n            <div class=\"overview__balance h3\">$").concat(this.balance, "</div>\n            <div class=\"overview__percent ").concat(this.plusMinus, "\"> ").concat(this.percent, "%</div>\n          </div>\n          <div class=\"overview__last-month text\">Compared to $").concat(this.lastMonth, " last month</div>\n        ");
+      this.parent.append(element);
+    }
+  }]);
+
+  return Overview;
+}();
+
+new Overview("Income", 32.134, 2.5, 21.340, "plus", ".overview__transactions").render();
+new Overview("Expense", 4.541, 2.5, 21.000, "minus", ".overview__transactions").render();
+new Overview("Cashback", 1.324, 4.5, 21.000, "plus", ".overview__transactions").render();
+new Overview("Monthly turnover", 87.324, 31, 196.129, "minus", ".overview__transactions").render();
+
+/***/ }),
+
+/***/ "./app/js/modules/templates/tags.js":
+/*!******************************************!*\
+  !*** ./app/js/modules/templates/tags.js ***!
+  \******************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2918,10 +2915,10 @@ new Tags("magenta", "Hair", 10, "ul.fast__tegs-items.swiper-wrapper").render();
 
 /***/ }),
 
-/***/ "./app/js/modules/transactions.js":
-/*!****************************************!*\
-  !*** ./app/js/modules/transactions.js ***!
-  \****************************************/
+/***/ "./app/js/modules/templates/transactions.js":
+/*!**************************************************!*\
+  !*** ./app/js/modules/templates/transactions.js ***!
+  \**************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2953,7 +2950,8 @@ var LastTransactions = /*#__PURE__*/function () {
     this.plusMinus = plusMinus; // this.color = color;
 
     this.parent = document.querySelector(parentSelector);
-  }
+  } // СОБИРАЕМ ВЁРСТКУ
+
 
   _createClass(LastTransactions, [{
     key: "render",
@@ -3038,26 +3036,20 @@ var __webpack_exports__ = {};
   !*** ./app/js/script.js ***!
   \**************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_swipers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/swipers.js */ "./app/js/modules/swipers.js");
-/* harmony import */ var _modules_popUp_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/popUp.js */ "./app/js/modules/popUp.js");
-/* harmony import */ var _modules_cards_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/cards.js */ "./app/js/modules/cards.js");
-/* harmony import */ var _modules_tags_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/tags.js */ "./app/js/modules/tags.js");
-/* harmony import */ var _modules_transactions_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/transactions.js */ "./app/js/modules/transactions.js");
-/* harmony import */ var _modules_overview_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/overview.js */ "./app/js/modules/overview.js");
+/* harmony import */ var _modules_popUp_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/popUp.js */ "./app/js/modules/popUp.js");
+/* harmony import */ var _modules_templates_cards_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/templates/cards.js */ "./app/js/modules/templates/cards.js");
+/* harmony import */ var _modules_templates_overview_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/templates/overview.js */ "./app/js/modules/templates/overview.js");
+/* harmony import */ var _modules_templates_tags_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/templates/tags.js */ "./app/js/modules/templates/tags.js");
+/* harmony import */ var _modules_templates_transactions_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/templates/transactions.js */ "./app/js/modules/templates/transactions.js");
+/* harmony import */ var _modules_swipers_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/swipers.js */ "./app/js/modules/swipers.js");
 
 
 
 
 
-
-window.addEventListener('DOMContentLoaded', function () {
-  _modules_swipers_js__WEBPACK_IMPORTED_MODULE_0__();
-  _modules_popUp_js__WEBPACK_IMPORTED_MODULE_1__();
-  _modules_cards_js__WEBPACK_IMPORTED_MODULE_2__();
-  _modules_tags_js__WEBPACK_IMPORTED_MODULE_3__();
-  _modules_transactions_js__WEBPACK_IMPORTED_MODULE_4__();
-  _modules_overview_js__WEBPACK_IMPORTED_MODULE_5__();
-});
+ // window.addEventListener('DOMContentLoaded', () => {
+//     return popUp, menuCards, tags, topCategories(), lastTransaction(), cards(), fast(), lastTransactions, overview;
+// });
 })();
 
 /******/ })()

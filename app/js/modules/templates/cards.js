@@ -12,6 +12,7 @@ class MenuCard {
     }
 
     // СОБИРАЕМ ВЁРСТКУ
+    
     render() {
         const element = document.createElement('div');
         element.classList.add('card__body','swiper-slide', this.colorClass);

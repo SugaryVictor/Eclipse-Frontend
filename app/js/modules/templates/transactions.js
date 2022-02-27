@@ -14,6 +14,8 @@ class LastTransactions {
         this.parent = document.querySelector(parentSelector);
     }
 
+    // СОБИРАЕМ ВЁРСТКУ
+
     render() {
         const element = document.createElement('li');
         element.classList.add("last-transaction__stroke", "swiper-slide");
