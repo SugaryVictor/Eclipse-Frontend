@@ -1,3 +1,4 @@
+import {getResouces} from '../getResources.js';
 class MenuCard {
     constructor(colorClass, src, alt, balance, cardHolder, finLogo, finLogoAlt, parentSelector) {
         this.src = src;
@@ -19,7 +20,7 @@ class MenuCard {
         element.innerHTML = `
               <div class="card__currency"> 
                 <img src=${this.src} alt=${this.alt}/>
-                <img src="../img/icons/chip.svg" alt="CHIP"/></div>
+                <img src="./img/icons/chip.svg" alt="CHIP"/></div>
               <div class="card__balance h2">${this.balance}</div>
               <div class="card__info">
                 <div class="card__card-holder">Card holder<span>${this.cardHolder}</span></div>
@@ -34,68 +35,9 @@ class MenuCard {
 
 // РЕНДЕРИМ КАРТОЧКИ
 
-new MenuCard(
-    "orange",
-    "../img/logos/btc-logo.svg",
-    "BTC",
-    "12,500",
-    "Orion",
-    "../img/logos/visa-logo.svg",
-    "visa",
-    '.swiper-wrapper'
-).render();
-
-new MenuCard(
-    "gray",
-    "../img/logos/euro-logo.svg",
-    "EURO",
-    "54,302",
-    "Alien Pixels",
-    "../img/logos/mastercard-logo.svg",
-    "mastercard",
-    '.swiper-wrapper'
-).render();
-    
-new MenuCard(
-    "red",
-    "../img/logos/usd-logo.svg",
-    "USD",
-    "38,864",
-    "ALEX",
-    "../img/logos/visa-logo.svg",
-    "visa",
-    '.swiper-wrapper'
-).render();
-
-new MenuCard(
-    "manteray",
-    "../img/logos/usd-logo.svg",
-    "USD",
-    "12,500",
-    "Sugary",
-    "../img/logos/mastercard-logo.svg",
-    "mastercard",
-    '.swiper-wrapper'
-).render();
-
-new MenuCard(
-    "red",
-    "../img/logos/usd-logo.svg",
-    "USD",
-    "44,246",
-    "ALEX",
-    "../img/logos/visa-logo.svg",
-    "visa",
-    '.swiper-wrapper'
-).render();
-
-new MenuCard(
-    "bigSur",
-    "../img/logos/usd-logo.svg",
-    "USD",
-    "54,302",
-    "Victor Chepkasov",
-    "../img/logos/visa-logo.svg",
-    "visa",
-    '.swiper-wrapper'
-).render();
+getResouces('http://localhost:3000/cards')
+    .then(data => {
+        data.forEach(({colorClass, src, alt, balance, cardHolder, finLogo, finLogoAlt, parentSelector}) => {
+            new MenuCard(colorClass, src, alt, balance, cardHolder, finLogo, finLogoAlt, parentSelector).render()
+        });
+    });

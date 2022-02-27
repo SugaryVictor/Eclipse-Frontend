@@ -1,0 +1,247 @@
+{
+    "cards": [
+        {
+            "colorClass": "orange",
+            "src": "./img/logos/btc-logo.svg",
+            "alt": "BTC",
+            "balance": "12,500",
+            "cardHolder": "Orion",
+            "finLogo": "./img/logos/visa-logo.svg",
+            "finLogoAlt": "visa",
+            "parentSelector": ".swiper-wrapper"
+        },
+        {
+            "colorClass": "gray",
+            "src": "./img/logos/euro-logo.svg",
+            "alt": "EURO",
+            "balance": "54,302",
+            "cardHolder": "Alien Pixels",
+            "finLogo": "./img/logos/mastercard-logo.svg",
+            "finLogoAlt": "mastercard",
+            "parentSelector": ".swiper-wrapper"
+        }, 
+        {
+            "colorClass": "red",
+            "src": "./img/logos/usd-logo.svg",
+            "alt": "USD",
+            "balance": "38,864",
+            "cardHolder": "ALEX",
+            "finLogo": "./img/logos/visa-logo.svg",
+            "finLogoAlt": "visa",
+            "parentSelector": ".swiper-wrapper"
+        }, 
+        {
+            "colorClass": "manteray",
+            "src": "./img/logos/usd-logo.svg",
+            "alt": "USD",
+            "balance": "12,500",
+            "cardHolder": "Sugary",
+            "finLogo": "./img/logos/mastercard-logo.svg",
+            "finLogoAlt": "mastercard",
+            "parentSelector": ".swiper-wrapper"
+        }, 
+        {
+            "colorClass": "red",
+            "src": "./img/logos/usd-logo.svg",
+            "alt": "USD",
+            "balance":  "44,246",
+            "cardHolder": "ALEX",
+            "finLogo": "./img/logos/visa-logo.svg",
+            "finLogoAlt": "visa",
+            "parentSelector": ".swiper-wrapper"
+        }, 
+        {
+            "colorClass": "bigSur",
+            "src": "./img/logos/usd-logo.svg",
+            "alt": "USD",
+            "balance": "54,302",
+            "cardHolder": "Victor Chepkasov",
+            "finLogo": "./img/logos/visa-logo.svg",
+            "finLogoAlt": "visa",
+            "parentSelector": ".swiper-wrapper"
+        }
+    ],
+    "overview": [
+        {
+            "title": "Income",
+            "balance": 32.134,
+            "percent": "-2.5",
+            "lastMonth": 21.340,
+            "plusMinus": "minus",
+            "parentSelector": ".overview__transactions"
+        },
+        {
+            "title": "Expense",
+            "balance": 4.541,
+            "percent": "+2.5",
+            "lastMonth": 21.000,
+            "plusMinus": "plus",
+            "parentSelector": ".overview__transactions"
+            
+        },
+        {
+            "title": "Cashback",
+            "balance": 1.324,
+            "percent": "+4.5",
+            "lastMonth": 21.340,
+            "plusMinus": "plus",
+            "parentSelector": ".overview__transactions"
+        },
+        {
+            "title": "Monthly turnover",
+            "balance": 4.541,
+            "percent": "-2.5",
+            "lastMonth": 21.000,
+            "plusMinus": "minus",
+            "parentSelector": ".overview__transactions"
+        }
+    ],
+    "tags": [
+        {
+            "colorTag": "azure",
+            "category": "Training",
+            "balance": 650
+        },
+        {
+            "colorTag": "zinc",
+            "category": "Internet",
+            "balance": 45
+        },
+        {
+            "colorTag": "spring",
+            "category": "Gas",
+            "balance": 135
+        },
+        {
+            "colorTag": "mango",
+            "category": "Cinema",
+            "balance": 15
+        },
+        {
+            "colorTag": "verdepom",
+            "category": "Clothes",
+            "balance": 700
+        },
+        {
+            "colorTag": "white",
+            "category": "Apple Store",
+            "balance": 1000
+        },
+        {
+            "colorTag": "amethyst",
+            "category": "Coffee",
+            "balance": 50
+        },
+        {
+            "colorTag": "skies",
+            "category": "Water",
+            "balance": 45
+        }
+    ],
+    "last-transactions": [
+        {
+            "src": "./img/categories-icons/сoffee.svg",
+            "alt": "coffee",
+            "store": "Starbucks Cafe",
+            "date": "04.01.2020",
+            "cardsPay": "./img/cards/visa-card-blue.svg",
+            "cardsPayAlt": "card",
+            "cardNumber": "*6589",
+            "cardType": "Credit card",
+            "balance": 16.50,
+            "plusMinus": "- ",
+            "parentSelector": ".last-transaction__table"
+        },
+        {
+            "src": "./img/categories-icons/gamepad.svg",
+            "alt": "gamepad",
+            "store": "Apple store",
+            "date": "05.01.2020",
+            "cardsPay": "./img/cards/visa-card-red.svg",
+            "cardsPayAlt": "card",
+            "cardNumber": "*4300",
+            "cardType": "Credit card",
+            "balance": 135,
+            "plusMinus": "- ",
+            "parentSelector": ".last-transaction__table"
+        },
+        {
+            "src": "./img/categories-icons/pharmacy.svg",
+            "alt": "pharmacy",
+            "store": "Pharmacy",
+            "date": "04.01.2020",
+            "cardsPay": "./img/cards/mastercard-card.svg",
+            "cardsPayAlt": "card",
+            "cardNumber": "*9054",
+            "cardType": "Credit card",
+            "balance": 58.00,
+            "plusMinus": "- ",
+            "parentSelector": ".last-transaction__table"
+        },
+        {
+            "src": "./img/categories-icons/food.svg",
+            "alt": "food",
+            "store": "Spar",
+            "date": "03.01.2020",
+            "cardsPay": "./img/cards/visa-card-red.svg",
+            "cardsPayAlt": "card",
+            "cardNumber": "*3288",
+            "cardType": "Credit card",
+            "balance": 18.00,
+            "plusMinus": "- ",
+            "parentSelector": ".last-transaction__table"
+        },
+        {
+            "src": "./img/categories-icons/food.svg",
+            "alt": "food",
+            "store": "Spar",
+            "date": "03.01.2020",
+            "cardsPay": "./img/cards/visa-card-red.svg",
+            "cardsPayAlt": "card",
+            "cardNumber": "*3288",
+            "cardType": "Credit card",
+            "balance": 35,
+            "plusMinus": "- ",
+            "parentSelector": ".last-transaction__table"
+        },
+        {
+            "src": "./img/categories-icons/сoffee.svg",
+            "alt": "coffee",
+            "store": "Starbucks Cafe",
+            "date": "04.01.2020",
+            "cardsPay": "./img/cards/visa-card-blue.svg",
+            "cardsPayAlt": "card",
+            "cardNumber": "*6589",
+            "cardType": "Credit card",
+            "balance": 16.50,
+            "plusMinus": "- ",
+            "parentSelector": ".last-transaction__table"
+        },
+        {
+            "src": "./img/categories-icons/gamepad.svg",
+            "alt": "gamepad",
+            "store": "Apple store",
+            "date": "05.01.2020",
+            "cardsPay": "./img/cards/visa-card-red.svg",
+            "cardsPayAlt": "card",
+            "cardNumber": "*4300",
+            "cardType": "Credit card",
+            "balance": 135,
+            "plusMinus": "- ",
+            "parentSelector": ".last-transaction__table"
+        },
+        {
+            "src": "./img/categories-icons/pharmacy.svg",
+            "alt": "pharmacy",
+            "store": "Pharmacy",
+            "date": "04.01.2020",
+            "cardsPay": "./img/cards/mastercard-card.svg",
+            "cardsPayAlt": "card",
+            "cardNumber": "*9054",
+            "cardType": "Credit card",
+            "balance": 58.00,
+            "plusMinus": "- ",
+            "parentSelector": ".last-transaction__table"
+        }
+    ]
+}

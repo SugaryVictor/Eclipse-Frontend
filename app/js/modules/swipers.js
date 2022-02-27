@@ -1,5 +1,5 @@
 // SLIDER FOR LAST TRANSACTION
-const lastTransaction = new Swiper('.last-transaction', {  
+export const lastTransaction = new Swiper('.last-transaction', {  
     slidesPerView: 4,
     slidesPerGroup: 2,
     direction: "vertical",
@@ -9,6 +9,7 @@ const lastTransaction = new Swiper('.last-transaction', {
         nextEl: '.last-transaction__btn.btn-next',
         prevEl: '.last-transaction__btn.btn-prev',
     },
+    init:false,
 });
 
 // SLIDER FOR TOP_CATEGORIES

@@ -1,0 +1,141 @@
+{
+    "cards": [
+        {
+            "colorClass": "orange",
+            "src": "./img/logos/btc-logo.svg",
+            "alt": "BTC",
+            "balance": "12,500",
+            "cardHolder": "Orion",
+            "finLogo": "./img/logos/visa-logo.svg",
+            "finLogoAlt": "visa",
+            "parentSelector": ".swiper-wrapper"
+        },
+        {
+            "colorClass": "gray",
+            "src": "./img/logos/euro-logo.svg",
+            "alt": "EURO",
+            "balance": "54,302",
+            "cardHolder": "Alien Pixels",
+            "finLogo": "./img/logos/mastercard-logo.svg",
+            "finLogoAlt": "mastercard",
+            "parentSelector": ".swiper-wrapper"
+        }, 
+        {
+            "colorClass": "red",
+            "src": "./img/logos/usd-logo.svg",
+            "alt": "USD",
+            "balance": "38,864",
+            "cardHolder": "ALEX",
+            "finLogo": "./img/logos/visa-logo.svg",
+            "finLogoAlt": "visa",
+            "parentSelector": ".swiper-wrapper"
+        }, 
+        {
+            "colorClass": "manteray",
+            "src": "./img/logos/usd-logo.svg",
+            "alt": "USD",
+            "balance": "12,500",
+            "cardHolder": "Sugary",
+            "finLogo": "./img/logos/mastercard-logo.svg",
+            "finLogoAlt": "mastercard",
+            "parentSelector": ".swiper-wrapper"
+        }, 
+        {
+            "colorClass": "red",
+            "src": "./img/logos/usd-logo.svg",
+            "alt": "USD",
+            "balance":  "44,246",
+            "cardHolder": "ALEX",
+            "finLogo": "./img/logos/visa-logo.svg",
+            "finLogoAlt": "visa",
+            "parentSelector": ".swiper-wrapper"
+        }, 
+        {
+            "colorClass": "bigSur",
+            "src": "./img/logos/usd-logo.svg",
+            "alt": "USD",
+            "balance": "54,302",
+            "cardHolder": "Victor Chepkasov",
+            "finLogo": "./img/logos/visa-logo.svg",
+            "finLogoAlt": "visa",
+            "parentSelector": ".swiper-wrapper"
+        }
+    ],
+    "overview": [
+        {
+            "title": "Income",
+            "balance": 32.134,
+            "percent": 2.5,
+            "lastMonth": 21.340,
+            "plusMinus": "plusMinus",
+        },
+        {
+            "title": "Expense",
+            "balance": 4.541,
+            "percent": 2.5,
+            "lastMonth": 21.000,
+            "plusMinus": "minus",
+        },
+        {
+            "title": "Cashback",
+            "balance": 1.324,
+            "percent": 4.5,
+            "lastMonth": 21.000,
+            "plusMinus": "minus",
+        },
+        {
+            "title": "Monthly turnover",
+            "balance": 87.324,
+            "percent": 31,
+            "lastMonth": 196.129,
+            "plusMinus": "minus",
+        }
+    ],
+    "tags": [
+        {
+            "colorTag": "azure",
+            "category": "Training",
+            "balance": 650,
+        },
+        {
+            "colorTag": "zinc",
+            "category": "Internet",
+            "balance": 45,
+        },
+        {
+            "colorTag": "spring",
+            "category": "Gas",
+            "balance": 135,
+        },
+        {
+            "colorTag": "mango",
+            "category": "Cinema",
+            "balance": 15,
+        },
+        {
+            "colorTag": "verdepom",
+            "category": "Clothes",
+            "balance": 700,
+        },
+        {
+            "colorTag": "white",
+            "category": "Apple Store",
+            "balance": 1000,
+        },
+        {
+            "colorTag": "amethyst",
+            "category": "Coffee",
+            "balance": 50,
+        },
+        {
+            "colorTag": "skies",
+            "category": "Water",
+            "balance": 45,
+        },
+        {
+            "colorTag": "magenta",
+            "category": "Hair",
+            "balance": 10,
+        }
+    ]
+}

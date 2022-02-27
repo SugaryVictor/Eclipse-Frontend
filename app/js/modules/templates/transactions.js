@@ -1,3 +1,5 @@
+import {getResouces} from '../getResources.js';
+import {lastTransaction} from '../swipers.js';
 class LastTransactions {
     constructor(src, alt, store, date, cardsPay, cardsPayAlt, cardNumber, cardType, balance, plusMinus, parentSelector) {
         this.src = src;
@@ -40,12 +42,24 @@ class LastTransactions {
     }
 }
 
+// РЕНДЕРИМ КАРТОЧКИ
+
+getResouces('http://localhost:3000/last-transactions')
+    .then(data => {
+        data.forEach(({src, alt, store, date, cardsPay, cardsPayAlt, cardNumber, cardType, balance, plusMinus, parentSelector}) => {
+            new LastTransactions(src, alt, store, date, cardsPay, cardsPayAlt, cardNumber, cardType, balance, plusMinus, parentSelector).render()
+        });
+        setTimeout(() => {
+            lastTransaction.init();
+        },0);
+    });
+
 new LastTransactions(
-    "../img/categories-icons/gamepad.svg",
+    "./img/categories-icons/gamepad.svg",
     "gamepad",
     "Apple store",
     "05.01.2020",
-    "../img/cards/visa-card-red.svg",
+    "./img/cards/visa-card-red.svg",
     "card",
     "*4300",
     "Credit card",
@@ -54,101 +68,101 @@ new LastTransactions(
     ".last-transaction__table"
 ).render();
 
-new LastTransactions(
-    "../img/categories-icons/сoffee.svg",
-    "coffee",
-    "Starbucks Cafe",
-    "04.01.2020",
-    "../img/cards/visa-card-blue.svg",
-    "card",
-    "*6589",
-    "Credit card",
-    16.50,
-    "- ",
-    ".last-transaction__table"
-).render();
+// new LastTransactions(
+//     "./img/categories-icons/сoffee.svg",
+//     "coffee",
+//     "Starbucks Cafe",
+//     "04.01.2020",
+//     "./img/cards/visa-card-blue.svg",
+//     "card",
+//     "*6589",
+//     "Credit card",
+//     16.50,
+//     "- ",
+//     ".last-transaction__table"
+// ).render();
 
-new LastTransactions(
-    "../img/categories-icons/pharmacy.svg",
-    "pharmacy",
-    "Pharmacy",
-    "04.01.2020",
-    "../img/cards/mastercard-card.svg",
-    "card",
-    "*9054",
-    "Credit card",
-    58.00,
-    "- ",
-    ".last-transaction__table"
-).render();
+// new LastTransactions(
+//     "./img/categories-icons/pharmacy.svg",
+//     "pharmacy",
+//     "Pharmacy",
+//     "04.01.2020",
+//     "./img/cards/mastercard-card.svg",
+//     "card",
+//     "*9054",
+//     "Credit card",
+//     58.00,
+//     "- ",
+//     ".last-transaction__table"
+// ).render();
 
-new LastTransactions(
-    "../img/categories-icons/food.svg",
-    "food",
-    "Spar",
-    "03.01.2020",
-    "../img/cards/visa-card-red.svg",
-    "card",
-    "*3288",
-    "Credit card",
-    18.00,
-    "- ",
-    ".last-transaction__table"
-).render();
+// new LastTransactions(
+//     "./img/categories-icons/food.svg",
+//     "food",
+//     "Spar",
+//     "03.01.2020",
+//     "./img/cards/visa-card-red.svg",
+//     "card",
+//     "*3288",
+//     "Credit card",
+//     18.00,
+//     "- ",
+//     ".last-transaction__table"
+// ).render();
 
-new LastTransactions(
-    "../img/categories-icons/pharmacy.svg",
-    "pharmacy",
-    "Pharmacy",
-    "05.01.2020",
-    "../img/cards/mastercard-card.svg",
-    "card",
-    "*3288",
-    "Credit card",
-    35,
-    "- ",
-    ".last-transaction__table"
-).render();
+// new LastTransactions(
+//     "./img/categories-icons/pharmacy.svg",
+//     "pharmacy",
+//     "Pharmacy",
+//     "05.01.2020",
+//     "./img/cards/mastercard-card.svg",
+//     "card",
+//     "*3288",
+//     "Credit card",
+//     35,
+//     "- ",
+//     ".last-transaction__table"
+// ).render();
 
-new LastTransactions(
-    "../img/categories-icons/pharmacy.svg",
-    "pharmacy",
-    "Pharmacy",
-    "05.01.2020",
-    "../img/cards/mastercard-card.svg",
-    "card",
-    "*3288",
-    "Credit card",
-    35,
-    "- ",
-    ".last-transaction__table"
-).render();
+// new LastTransactions(
+//     "./img/categories-icons/pharmacy.svg",
+//     "pharmacy",
+//     "Pharmacy",
+//     "05.01.2020",
+//     "./img/cards/mastercard-card.svg",
+//     "card",
+//     "*3288",
+//     "Credit card",
+//     35,
+//     "- ",
+//     ".last-transaction__table"
+// ).render();
 
-new LastTransactions(
-    "../img/categories-icons/сoffee.svg",
-    "coffee",
-    "Starbucks Cafe",
-    "04.01.2020",
-    "../img/cards/visa-card-blue.svg",
-    "card",
-    "*6589",
-    "Credit card",
-    16.50,
-    "- ",
-    ".last-transaction__table"
-).render();
+// new LastTransactions(
+//     "./img/categories-icons/сoffee.svg",
+//     "coffee",
+//     "Starbucks Cafe",
+//     "04.01.2020",
+//     "./img/cards/visa-card-blue.svg",
+//     "card",
+//     "*6589",
+//     "Credit card",
+//     16.50,
+//     "- ",
+//     ".last-transaction__table"
+// ).render();
 
 
-new LastTransactions(
-    "../img/categories-icons/pharmacy.svg",
-    "pharmacy",
-    "Pharmacy",
-    "05.01.2020",
-    "../img/cards/mastercard-card.svg",
-    "card",
-    "*3288",
-    "Credit card",
-    35,
-    "- ",
-    ".last-transaction__table"
-).render();
+// new LastTransactions(
+//     "./img/categories-icons/pharmacy.svg",
+//     "pharmacy",
+//     "Pharmacy",
+//     "05.01.2020",
+//     "./img/cards/mastercard-card.svg",
+//     "card",
+//     "*3288",
+//     "Credit card",
+//     35,
+//     "- ",
+//     ".last-transaction__table"
+// ).render();
